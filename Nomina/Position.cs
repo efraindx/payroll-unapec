@@ -17,7 +17,7 @@ namespace Nomina
         public int Id { get; set; }
         public string Name { get; set; }
         public string RiskLevel { get; set; }
-        public string MinSalary { get; set; }
-        public string MaxSalary { get; set; }
+        public double MinSalary { get; set; }
+        public double MaxSalary { get; set; }
     }
 }

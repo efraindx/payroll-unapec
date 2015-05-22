@@ -51,7 +51,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Cedula" Type="String" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Salary" Type="String" Nullable="false" />
+          <Property Name="Salary" Type="Double" Nullable="false" />
           <Property Name="PayrollId" Type="String" Nullable="false" />
           <NavigationProperty Name="Department" Relationship="Model1.EmployeeDepartment" FromRole="Employee" ToRole="Department" />
           <NavigationProperty Name="Position" Relationship="Model1.EmployeePosition" FromRole="Employee" ToRole="Position" />
@@ -80,8 +80,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="RiskLevel" Type="String" Nullable="false" />
-          <Property Name="MinSalary" Type="String" Nullable="false" />
-          <Property Name="MaxSalary" Type="String" Nullable="false" />
+          <Property Name="MinSalary" Type="Double" Nullable="false" />
+          <Property Name="MaxSalary" Type="Double" Nullable="false" />
         </EntityType>
         <Association Name="EmployeePosition">
           <End Type="Model1.Employee" Role="Employee" Multiplicity="1" />
@@ -114,8 +114,8 @@
           <NavigationProperty Name="IncomeType" Relationship="Model1.TransactionIncomeType" FromRole="Transaction" ToRole="IncomeType" />
           <NavigationProperty Name="DeductionType" Relationship="Model1.TransactionDeductionType" FromRole="Transaction" ToRole="DeductionType" />
           <Property Name="Type" Type="String" Nullable="false" />
-          <Property Name="Date" Type="String" Nullable="false" />
-          <Property Name="Amount" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
           <Property Name="Status" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="TransactionEmployee">

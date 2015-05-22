@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\users\r. jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\PayrollModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\PayrollModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

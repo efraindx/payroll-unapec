@@ -16,8 +16,8 @@ namespace Nomina
     {
         public int Id { get; set; }
         public string Type { get; set; }
-        public string Date { get; set; }
-        public string Amount { get; set; }
+        public System.DateTime Date { get; set; }
+        public double Amount { get; set; }
         public string Status { get; set; }
     
         public virtual Employee Employee { get; set; }

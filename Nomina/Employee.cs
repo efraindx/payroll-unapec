@@ -17,7 +17,7 @@ namespace Nomina
         public int Id { get; set; }
         public string Cedula { get; set; }
         public string Name { get; set; }
-        public string Salary { get; set; }
+        public double Salary { get; set; }
         public string PayrollId { get; set; }
     
         public virtual Department Department { get; set; }
