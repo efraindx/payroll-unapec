@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a22b7b31a4c747a698e4054cbe69ee42" Name="Diagram1" >
-        <EntityTypeShape EntityType="Model1.Employee" Width="1.5" PointX="3.75" PointY="3" />
-        <EntityTypeShape EntityType="Model1.Department" Width="1.5" PointX="3.75" PointY="0.5" />
-        <AssociationConnector Association="Model1.EmployeeDepartment" />
-        <AssociationConnector Association="Model1.DepartmentEmployee" />
-        <EntityTypeShape EntityType="Model1.Position" Width="1.5" PointX="1.125" PointY="3.25" />
-        <AssociationConnector Association="Model1.EmployeePosition" />
-        <EntityTypeShape EntityType="Model1.IncomeType" Width="1.5" PointX="5.75" PointY="0.5" />
-        <EntityTypeShape EntityType="Model1.DeductionType" Width="1.5" PointX="7.5" PointY="0.5" />
-        <EntityTypeShape EntityType="Model1.Transaction" Width="1.5" PointX="6.25" PointY="3.125" />
-        <AssociationConnector Association="Model1.TransactionEmployee" />
-        <AssociationConnector Association="Model1.TransactionIncomeType" />
-        <AssociationConnector Association="Model1.TransactionDeductionType" />
+      <Diagram DiagramId="a22b7b31a4c747a698e4054cbe69ee42" Name="PayrollDiagram" >
+        <EntityTypeShape EntityType="PayrollModel.Employee" Width="1.5" PointX="3.75" PointY="3" />
+        <EntityTypeShape EntityType="PayrollModel.Department" Width="1.5" PointX="3.75" PointY="0.5" />
+        <AssociationConnector Association="PayrollModel.EmployeeDepartment" />
+        <AssociationConnector Association="PayrollModel.DepartmentEmployee" />
+        <EntityTypeShape EntityType="PayrollModel.Position" Width="1.5" PointX="1.125" PointY="3.25" />
+        <AssociationConnector Association="PayrollModel.EmployeePosition" />
+        <EntityTypeShape EntityType="PayrollModel.IncomeType" Width="1.5" PointX="5.75" PointY="0.5" />
+        <EntityTypeShape EntityType="PayrollModel.DeductionType" Width="1.5" PointX="7.5" PointY="0.5" />
+        <EntityTypeShape EntityType="PayrollModel.Transaction" Width="1.5" PointX="6.25" PointY="3.125" />
+        <AssociationConnector Association="PayrollModel.TransactionEmployee" />
+        <AssociationConnector Association="PayrollModel.TransactionIncomeType" />
+        <AssociationConnector Association="PayrollModel.TransactionDeductionType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

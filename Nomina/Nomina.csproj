@@ -66,12 +66,6 @@
     <Compile Include="Employee.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="IncomeType.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
@@ -93,11 +87,25 @@
     <Compile Include="Position.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PositionForm.Designer.cs">
+      <DependentUpon>PositionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="_payroll_unapecDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_payroll_unapecDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PositionForm.resx">
+      <DependentUpon>PositionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -124,6 +132,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_payroll_unapecDataSet.xsc">
+      <DependentUpon>_payroll_unapecDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_payroll_unapecDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_payroll_unapecDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_payroll_unapecDataSet.xss">
+      <DependentUpon>_payroll_unapecDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
