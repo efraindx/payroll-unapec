@@ -66,6 +66,12 @@
     <Compile Include="Employee.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DepartmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartmentForm.Designer.cs">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IncomeType.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
@@ -103,6 +109,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_payroll_unapecDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DepartmentForm.resx">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PositionForm.resx">
       <DependentUpon>PositionForm.cs</DependentUpon>
     </EmbeddedResource>

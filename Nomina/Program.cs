@@ -17,6 +17,7 @@ namespace Nomina
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new PositionForm());
+            Application.Run(new DepartmentForm());
         }
     }
 }
