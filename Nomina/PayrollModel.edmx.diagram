@@ -11,12 +11,10 @@
         <AssociationConnector Association="PayrollModel.DepartmentEmployee" />
         <EntityTypeShape EntityType="PayrollModel.Position" Width="1.5" PointX="1.125" PointY="3.25" />
         <AssociationConnector Association="PayrollModel.EmployeePosition" />
-        <EntityTypeShape EntityType="PayrollModel.IncomeType" Width="1.5" PointX="5.75" PointY="0.5" />
-        <EntityTypeShape EntityType="PayrollModel.DeductionType" Width="1.5" PointX="7.5" PointY="0.5" />
         <EntityTypeShape EntityType="PayrollModel.Transaction" Width="1.5" PointX="6.25" PointY="3.125" />
         <AssociationConnector Association="PayrollModel.TransactionEmployee" />
-        <AssociationConnector Association="PayrollModel.TransactionIncomeType" />
-        <AssociationConnector Association="PayrollModel.TransactionDeductionType" />
+        <EntityTypeShape EntityType="PayrollModel.TransactionType" Width="1.5" PointX="4" PointY="6.25" />
+        <AssociationConnector Association="PayrollModel.FK_TransactionTransactionType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

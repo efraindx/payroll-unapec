@@ -2,9 +2,10 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/22/2015 08:11:34
+-- Date Created: 06/06/2015 15:09:17
 -- Generated from EDMX file: C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\PayrollModel.edmx
 -- --------------------------------------------------
+CREATE DATABASE [payroll-unapec]
 
 SET QUOTED_IDENTIFIER OFF;
 GO
@@ -17,11 +18,41 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_EmployeeDepartment]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_EmployeeDepartment];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DepartmentEmployee]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_DepartmentEmployee];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeePosition]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_EmployeePosition];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TransactionEmployee]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Transactions] DROP CONSTRAINT [FK_TransactionEmployee];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TransactionIncomeType]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[IncomeTypes] DROP CONSTRAINT [FK_TransactionIncomeType];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Employees]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Employees];
+GO
+IF OBJECT_ID(N'[dbo].[Departments]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Departments];
+GO
+IF OBJECT_ID(N'[dbo].[Positions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Positions];
+GO
+IF OBJECT_ID(N'[dbo].[IncomeTypes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[IncomeTypes];
+GO
+IF OBJECT_ID(N'[dbo].[Transactions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Transactions];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -58,34 +89,24 @@ CREATE TABLE [dbo].[Positions] (
 );
 GO
 
--- Creating table 'IncomeTypes'
-CREATE TABLE [dbo].[IncomeTypes] (
+-- Creating table 'TransactionTypes'
+CREATE TABLE [dbo].[TransactionTypes] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [SalaryDependent] nvarchar(max)  NOT NULL,
     [Status] nvarchar(max)  NOT NULL,
-    [TransactionIncomeType_IncomeType_Id] int  NOT NULL
-);
-GO
-
--- Creating table 'DeductionTypes'
-CREATE TABLE [dbo].[DeductionTypes] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [Name] nvarchar(max)  NOT NULL,
-    [SalaryDependent] nvarchar(max)  NOT NULL,
-    [Status] nvarchar(max)  NOT NULL,
-    [TransactionDeductionType_DeductionType_Id] int  NOT NULL
+    [isIncome] bit  NOT NULL
 );
 GO
 
 -- Creating table 'Transactions'
 CREATE TABLE [dbo].[Transactions] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Type] nvarchar(max)  NOT NULL,
     [Date] datetime  NOT NULL,
     [Amount] float  NOT NULL,
     [Status] nvarchar(max)  NOT NULL,
-    [Employee_Id] int  NOT NULL
+    [Employee_Id] int  NOT NULL,
+    [TransactionType_Id] int  NOT NULL
 );
 GO
 
@@ -111,15 +132,9 @@ ADD CONSTRAINT [PK_Positions]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'IncomeTypes'
-ALTER TABLE [dbo].[IncomeTypes]
-ADD CONSTRAINT [PK_IncomeTypes]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [Id] in table 'DeductionTypes'
-ALTER TABLE [dbo].[DeductionTypes]
-ADD CONSTRAINT [PK_DeductionTypes]
+-- Creating primary key on [Id] in table 'TransactionTypes'
+ALTER TABLE [dbo].[TransactionTypes]
+ADD CONSTRAINT [PK_TransactionTypes]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -193,34 +208,19 @@ ON [dbo].[Transactions]
     ([Employee_Id]);
 GO
 
--- Creating foreign key on [TransactionIncomeType_IncomeType_Id] in table 'IncomeTypes'
-ALTER TABLE [dbo].[IncomeTypes]
-ADD CONSTRAINT [FK_TransactionIncomeType]
-    FOREIGN KEY ([TransactionIncomeType_IncomeType_Id])
-    REFERENCES [dbo].[Transactions]
+-- Creating foreign key on [TransactionType_Id] in table 'Transactions'
+ALTER TABLE [dbo].[Transactions]
+ADD CONSTRAINT [FK_TransactionTransactionType]
+    FOREIGN KEY ([TransactionType_Id])
+    REFERENCES [dbo].[TransactionTypes]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_TransactionIncomeType'
-CREATE INDEX [IX_FK_TransactionIncomeType]
-ON [dbo].[IncomeTypes]
-    ([TransactionIncomeType_IncomeType_Id]);
-GO
-
--- Creating foreign key on [TransactionDeductionType_DeductionType_Id] in table 'DeductionTypes'
-ALTER TABLE [dbo].[DeductionTypes]
-ADD CONSTRAINT [FK_TransactionDeductionType]
-    FOREIGN KEY ([TransactionDeductionType_DeductionType_Id])
-    REFERENCES [dbo].[Transactions]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_TransactionDeductionType'
-CREATE INDEX [IX_FK_TransactionDeductionType]
-ON [dbo].[DeductionTypes]
-    ([TransactionDeductionType_DeductionType_Id]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_TransactionTransactionType'
+CREATE INDEX [IX_FK_TransactionTransactionType]
+ON [dbo].[Transactions]
+    ([TransactionType_Id]);
 GO
 
 -- --------------------------------------------------
