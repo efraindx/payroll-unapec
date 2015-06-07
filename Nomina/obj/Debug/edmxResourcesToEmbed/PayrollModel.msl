@@ -32,31 +32,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="IncomeTypes">
-      <EntityTypeMapping TypeName="IsTypeOf(PayrollModel.IncomeType)">
-        <MappingFragment StoreEntitySet="IncomeTypes">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="SalaryDependent" ColumnName="SalaryDependent" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DeductionTypes">
-      <EntityTypeMapping TypeName="IsTypeOf(PayrollModel.DeductionType)">
-        <MappingFragment StoreEntitySet="DeductionTypes">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="SalaryDependent" ColumnName="SalaryDependent" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Transactions">
       <EntityTypeMapping TypeName="IsTypeOf(PayrollModel.Transaction)">
         <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="TransactionType_Id" ColumnName="TransactionType_Id" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -95,21 +75,16 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="TransactionIncomeType" TypeName="PayrollModel.TransactionIncomeType" StoreEntitySet="IncomeTypes">
-      <EndProperty Name="Transaction">
-        <ScalarProperty Name="Id" ColumnName="TransactionIncomeType_IncomeType_Id" />
-      </EndProperty>
-      <EndProperty Name="IncomeType">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TransactionDeductionType" TypeName="PayrollModel.TransactionDeductionType" StoreEntitySet="DeductionTypes">
-      <EndProperty Name="Transaction">
-        <ScalarProperty Name="Id" ColumnName="TransactionDeductionType_DeductionType_Id" />
-      </EndProperty>
-      <EndProperty Name="DeductionType">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
+    <EntitySetMapping Name="TransactionTypes">
+      <EntityTypeMapping TypeName="PayrollModel.TransactionType">
+        <MappingFragment StoreEntitySet="TransactionTypes">
+          <ScalarProperty Name="isIncome" ColumnName="isIncome" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SalaryDependent" ColumnName="SalaryDependent" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

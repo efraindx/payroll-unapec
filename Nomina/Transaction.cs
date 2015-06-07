@@ -15,13 +15,12 @@ namespace Nomina
     public partial class Transaction
     {
         public int Id { get; set; }
-        public string Type { get; set; }
         public System.DateTime Date { get; set; }
         public double Amount { get; set; }
         public string Status { get; set; }
+        public int TransactionType_Id { get; set; }
     
         public virtual Employee Employee { get; set; }
-        public virtual IncomeType IncomeType { get; set; }
-        public virtual DeductionType DeductionType { get; set; }
+        public virtual TransactionType TransactionType { get; set; }
     }
 }

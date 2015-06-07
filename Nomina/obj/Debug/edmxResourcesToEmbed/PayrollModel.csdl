@@ -16,20 +16,15 @@
       <End Role="Employee" EntitySet="Employees" />
       <End Role="Position" EntitySet="Positions" />
     </AssociationSet>
-    <EntitySet Name="IncomeTypes" EntityType="PayrollModel.IncomeType" />
-    <EntitySet Name="DeductionTypes" EntityType="PayrollModel.DeductionType" />
     <EntitySet Name="Transactions" EntityType="PayrollModel.Transaction" />
     <AssociationSet Name="TransactionEmployee" Association="PayrollModel.TransactionEmployee">
       <End Role="Transaction" EntitySet="Transactions" />
       <End Role="Employee" EntitySet="Employees" />
     </AssociationSet>
-    <AssociationSet Name="TransactionIncomeType" Association="PayrollModel.TransactionIncomeType">
+    <EntitySet Name="TransactionTypes" EntityType="PayrollModel.TransactionType" />
+    <AssociationSet Name="FK_TransactionTransactionType" Association="PayrollModel.FK_TransactionTransactionType">
+      <End Role="TransactionType" EntitySet="TransactionTypes" />
       <End Role="Transaction" EntitySet="Transactions" />
-      <End Role="IncomeType" EntitySet="IncomeTypes" />
-    </AssociationSet>
-    <AssociationSet Name="TransactionDeductionType" Association="PayrollModel.TransactionDeductionType">
-      <End Role="Transaction" EntitySet="Transactions" />
-      <End Role="DeductionType" EntitySet="DeductionTypes" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Employee">
@@ -37,10 +32,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Cedula" Type="String" Nullable="false" />
-    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Cedula" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="Salary" Type="Double" Nullable="false" />
-    <Property Name="PayrollId" Type="String" Nullable="false" />
+    <Property Name="PayrollId" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Department" Relationship="PayrollModel.EmployeeDepartment" FromRole="Employee" ToRole="Department" />
     <NavigationProperty Name="Position" Relationship="PayrollModel.EmployeePosition" FromRole="Employee" ToRole="Position" />
   </EntityType>
@@ -49,8 +44,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" />
-    <Property Name="Location" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Manager" Relationship="PayrollModel.DepartmentEmployee" FromRole="Department" ToRole="Employee" />
   </EntityType>
   <Association Name="EmployeeDepartment">
@@ -66,8 +61,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" />
-    <Property Name="RiskLevel" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="RiskLevel" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="MinSalary" Type="Double" Nullable="false" />
     <Property Name="MaxSalary" Type="Double" Nullable="false" />
   </EntityType>
@@ -75,47 +70,43 @@
     <End Type="PayrollModel.Employee" Role="Employee" Multiplicity="*" />
     <End Type="PayrollModel.Position" Role="Position" Multiplicity="1" />
   </Association>
-  <EntityType Name="IncomeType">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" />
-    <Property Name="SalaryDependent" Type="String" Nullable="false" />
-    <Property Name="Status" Type="String" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DeductionType">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" />
-    <Property Name="SalaryDependent" Type="String" Nullable="false" />
-    <Property Name="Status" Type="String" Nullable="false" />
-  </EntityType>
   <EntityType Name="Transaction">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="Employee" Relationship="PayrollModel.TransactionEmployee" FromRole="Transaction" ToRole="Employee" />
-    <NavigationProperty Name="IncomeType" Relationship="PayrollModel.TransactionIncomeType" FromRole="Transaction" ToRole="IncomeType" />
-    <NavigationProperty Name="DeductionType" Relationship="PayrollModel.TransactionDeductionType" FromRole="Transaction" ToRole="DeductionType" />
-    <Property Name="Type" Type="String" Nullable="false" />
-    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Amount" Type="Double" Nullable="false" />
-    <Property Name="Status" Type="String" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TransactionType_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TransactionType" Relationship="PayrollModel.FK_TransactionTransactionType" FromRole="Transaction" ToRole="TransactionType" />
   </EntityType>
   <Association Name="TransactionEmployee">
     <End Type="PayrollModel.Transaction" Role="Transaction" Multiplicity="1" />
     <End Type="PayrollModel.Employee" Role="Employee" Multiplicity="1" />
   </Association>
-  <Association Name="TransactionIncomeType">
-    <End Type="PayrollModel.Transaction" Role="Transaction" Multiplicity="1" />
-    <End Type="PayrollModel.IncomeType" Role="IncomeType" Multiplicity="0..1" />
-  </Association>
-  <Association Name="TransactionDeductionType">
-    <End Type="PayrollModel.Transaction" Role="Transaction" Multiplicity="1" />
-    <End Type="PayrollModel.DeductionType" Role="DeductionType" Multiplicity="0..1" />
+  <EntityType Name="TransactionType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalaryDependent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isIncome" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Transactions" Relationship="PayrollModel.FK_TransactionTransactionType" FromRole="TransactionType" ToRole="Transaction" />
+  </EntityType>
+  <Association Name="FK_TransactionTransactionType">
+    <End Type="PayrollModel.TransactionType" Role="TransactionType" Multiplicity="1" />
+    <End Type="PayrollModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="TransactionType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

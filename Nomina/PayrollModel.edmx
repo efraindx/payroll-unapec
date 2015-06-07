@@ -4,174 +4,147 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="Model1StoreContainer">
-    <EntitySet Name="Employees" EntityType="Model1.Store.Employees" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Departments" EntityType="Model1.Store.Departments" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Positions" EntityType="Model1.Store.Positions" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="IncomeTypes" EntityType="Model1.Store.IncomeTypes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DeductionTypes" EntityType="Model1.Store.DeductionTypes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Transactions" EntityType="Model1.Store.Transactions" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="EmployeeDepartment" Association="Model1.Store.EmployeeDepartment">
-      <End Role="Employee" EntitySet="Employees" />
-      <End Role="Department" EntitySet="Departments" />
-    </AssociationSet>
-    <AssociationSet Name="DepartmentEmployee" Association="Model1.Store.DepartmentEmployee">
-      <End Role="Department" EntitySet="Departments" />
-      <End Role="Employee" EntitySet="Employees" />
-    </AssociationSet>
-    <AssociationSet Name="EmployeePosition" Association="Model1.Store.EmployeePosition">
-      <End Role="Employee" EntitySet="Employees" />
-      <End Role="Position" EntitySet="Positions" />
-    </AssociationSet>
-    <AssociationSet Name="TransactionEmployee" Association="Model1.Store.TransactionEmployee">
-      <End Role="Transaction" EntitySet="Transactions" />
-      <End Role="Employee" EntitySet="Employees" />
-    </AssociationSet>
-    <AssociationSet Name="TransactionIncomeType" Association="Model1.Store.TransactionIncomeType">
-      <End Role="Transaction" EntitySet="Transactions" />
-      <End Role="IncomeType" EntitySet="IncomeTypes" />
-    </AssociationSet>
-    <AssociationSet Name="TransactionDeductionType" Association="Model1.Store.TransactionDeductionType">
-      <End Role="Transaction" EntitySet="Transactions" />
-      <End Role="DeductionType" EntitySet="DeductionTypes" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Employees">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Cedula" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Salary" Type="float" Nullable="false" />
-    <Property Name="PayrollId" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Department_Id" Type="int" Nullable="false" />
-    <Property Name="DepartmentEmployee_Employee_Id" Type="int" Nullable="false" />
-    <Property Name="Position_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Departments">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Positions">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="RiskLevel" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="MinSalary" Type="float" Nullable="false" />
-    <Property Name="MaxSalary" Type="float" Nullable="false" />
-  </EntityType>
-  <EntityType Name="IncomeTypes">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SalaryDependent" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TransactionIncomeType_IncomeType_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DeductionTypes">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SalaryDependent" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TransactionDeductionType_DeductionType_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Transactions">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Amount" Type="float" Nullable="false" />
-    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Employee_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <Association Name="EmployeeDepartment">
-    <End Role="Employee" Type="Model1.Store.Employees" Multiplicity="*" />
-    <End Role="Department" Type="Model1.Store.Departments" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Employee">
-        <PropertyRef Name="Department_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DepartmentEmployee">
-    <End Role="Department" Type="Model1.Store.Departments" Multiplicity="1" />
-    <End Role="Employee" Type="Model1.Store.Employees" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Employee">
-        <PropertyRef Name="DepartmentEmployee_Employee_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EmployeePosition">
-    <End Role="Employee" Type="Model1.Store.Employees" Multiplicity="*" />
-    <End Role="Position" Type="Model1.Store.Positions" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Position">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Employee">
-        <PropertyRef Name="Position_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TransactionEmployee">
-    <End Role="Transaction" Type="Model1.Store.Transactions" Multiplicity="*" />
-    <End Role="Employee" Type="Model1.Store.Employees" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Transaction">
-        <PropertyRef Name="Employee_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TransactionIncomeType">
-    <End Role="Transaction" Type="Model1.Store.Transactions" Multiplicity="1" />
-    <End Role="IncomeType" Type="Model1.Store.IncomeTypes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Transaction">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="IncomeType">
-        <PropertyRef Name="TransactionIncomeType_IncomeType_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TransactionDeductionType">
-    <End Role="Transaction" Type="Model1.Store.Transactions" Multiplicity="1" />
-    <End Role="DeductionType" Type="Model1.Store.DeductionTypes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Transaction">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DeductionType">
-        <PropertyRef Name="TransactionDeductionType_DeductionType_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedula" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Salary" Type="float" Nullable="false" />
+          <Property Name="PayrollId" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Department_Id" Type="int" Nullable="false" />
+          <Property Name="DepartmentEmployee_Employee_Id" Type="int" Nullable="false" />
+          <Property Name="Position_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Positions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RiskLevel" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MinSalary" Type="float" Nullable="false" />
+          <Property Name="MaxSalary" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Employee_Id" Type="int" Nullable="false" />
+          <Property Name="TransactionType_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SalaryDependent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="isIncome" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DepartmentEmployee">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="DepartmentEmployee_Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeDepartment">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Department_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePosition">
+          <End Role="Positions" Type="Self.Positions" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Position_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionEmployee">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionTransactionType">
+          <End Role="TransactionTypes" Type="Self.TransactionTypes" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="TransactionType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Model1StoreContainer">
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionTypes" EntityType="Self.TransactionTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DepartmentEmployee" Association="Self.FK_DepartmentEmployee">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeDepartment" Association="Self.FK_EmployeeDepartment">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePosition" Association="Self.FK_EmployeePosition">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionEmployee" Association="Self.FK_TransactionEmployee">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionTransactionType" Association="Self.FK_TransactionTransactionType">
+            <End Role="TransactionTypes" EntitySet="TransactionTypes" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PayrollModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -191,20 +164,15 @@
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Position" EntitySet="Positions" />
           </AssociationSet>
-          <EntitySet Name="IncomeTypes" EntityType="PayrollModel.IncomeType" />
-          <EntitySet Name="DeductionTypes" EntityType="PayrollModel.DeductionType" />
           <EntitySet Name="Transactions" EntityType="PayrollModel.Transaction" />
           <AssociationSet Name="TransactionEmployee" Association="PayrollModel.TransactionEmployee">
             <End Role="Transaction" EntitySet="Transactions" />
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="TransactionIncomeType" Association="PayrollModel.TransactionIncomeType">
+          <EntitySet Name="TransactionTypes" EntityType="PayrollModel.TransactionType" />
+          <AssociationSet Name="FK_TransactionTransactionType" Association="PayrollModel.FK_TransactionTransactionType">
+            <End Role="TransactionType" EntitySet="TransactionTypes" />
             <End Role="Transaction" EntitySet="Transactions" />
-            <End Role="IncomeType" EntitySet="IncomeTypes" />
-          </AssociationSet>
-          <AssociationSet Name="TransactionDeductionType" Association="PayrollModel.TransactionDeductionType">
-            <End Role="Transaction" EntitySet="Transactions" />
-            <End Role="DeductionType" EntitySet="DeductionTypes" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Employee">
@@ -212,10 +180,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Cedula" Type="String" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Salary" Type="Double" Nullable="false" />
-          <Property Name="PayrollId" Type="String" Nullable="false" />
+          <Property Name="PayrollId" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Department" Relationship="PayrollModel.EmployeeDepartment" FromRole="Employee" ToRole="Department" />
           <NavigationProperty Name="Position" Relationship="PayrollModel.EmployeePosition" FromRole="Employee" ToRole="Position" />
         </EntityType>
@@ -224,8 +192,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Location" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Manager" Relationship="PayrollModel.DepartmentEmployee" FromRole="Department" ToRole="Employee" />
         </EntityType>
         <Association Name="EmployeeDepartment">
@@ -241,8 +209,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="RiskLevel" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="RiskLevel" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="MinSalary" Type="Double" Nullable="false" />
           <Property Name="MaxSalary" Type="Double" Nullable="false" />
         </EntityType>
@@ -250,48 +218,44 @@
           <End Type="PayrollModel.Employee" Role="Employee" Multiplicity="*" />
           <End Type="PayrollModel.Position" Role="Position" Multiplicity="1" />
         </Association>
-        <EntityType Name="IncomeType">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="SalaryDependent" Type="String" Nullable="false" />
-          <Property Name="Status" Type="String" Nullable="false" />
-        </EntityType>
-        <EntityType Name="DeductionType">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="SalaryDependent" Type="String" Nullable="false" />
-          <Property Name="Status" Type="String" Nullable="false" />
-        </EntityType>
         <EntityType Name="Transaction">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Employee" Relationship="PayrollModel.TransactionEmployee" FromRole="Transaction" ToRole="Employee" />
-          <NavigationProperty Name="IncomeType" Relationship="PayrollModel.TransactionIncomeType" FromRole="Transaction" ToRole="IncomeType" />
-          <NavigationProperty Name="DeductionType" Relationship="PayrollModel.TransactionDeductionType" FromRole="Transaction" ToRole="DeductionType" />
-          <Property Name="Type" Type="String" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Amount" Type="Double" Nullable="false" />
-          <Property Name="Status" Type="String" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TransactionType_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TransactionType" Relationship="PayrollModel.FK_TransactionTransactionType" FromRole="Transaction" ToRole="TransactionType" />
         </EntityType>
         <Association Name="TransactionEmployee">
           <End Type="PayrollModel.Transaction" Role="Transaction" Multiplicity="1" />
           <End Type="PayrollModel.Employee" Role="Employee" Multiplicity="1" />
         </Association>
-        <Association Name="TransactionIncomeType">
-          <End Type="PayrollModel.Transaction" Role="Transaction" Multiplicity="1" />
-          <End Type="PayrollModel.IncomeType" Role="IncomeType" Multiplicity="0..1" />
-        </Association>
-        <Association Name="TransactionDeductionType">
-          <End Type="PayrollModel.Transaction" Role="Transaction" Multiplicity="1" />
-          <End Type="PayrollModel.DeductionType" Role="DeductionType" Multiplicity="0..1" />
+        <EntityType Name="TransactionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SalaryDependent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isIncome" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Transactions" Relationship="PayrollModel.FK_TransactionTransactionType" FromRole="TransactionType" ToRole="Transaction" />
+        </EntityType>
+        <Association Name="FK_TransactionTransactionType">
+          <End Type="PayrollModel.TransactionType" Role="TransactionType" Multiplicity="1" />
+          <End Type="PayrollModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TransactionType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -330,31 +294,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="IncomeTypes">
-      <EntityTypeMapping TypeName="IsTypeOf(PayrollModel.IncomeType)">
-        <MappingFragment StoreEntitySet="IncomeTypes">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="SalaryDependent" ColumnName="SalaryDependent" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DeductionTypes">
-      <EntityTypeMapping TypeName="IsTypeOf(PayrollModel.DeductionType)">
-        <MappingFragment StoreEntitySet="DeductionTypes">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="SalaryDependent" ColumnName="SalaryDependent" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Transactions">
       <EntityTypeMapping TypeName="IsTypeOf(PayrollModel.Transaction)">
         <MappingFragment StoreEntitySet="Transactions">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="TransactionType_Id" ColumnName="TransactionType_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -393,22 +337,17 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="TransactionIncomeType" TypeName="PayrollModel.TransactionIncomeType" StoreEntitySet="IncomeTypes">
-      <EndProperty Name="Transaction">
-        <ScalarProperty Name="Id" ColumnName="TransactionIncomeType_IncomeType_Id" />
-      </EndProperty>
-      <EndProperty Name="IncomeType">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TransactionDeductionType" TypeName="PayrollModel.TransactionDeductionType" StoreEntitySet="DeductionTypes">
-      <EndProperty Name="Transaction">
-        <ScalarProperty Name="Id" ColumnName="TransactionDeductionType_DeductionType_Id" />
-      </EndProperty>
-      <EndProperty Name="DeductionType">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
+          <EntitySetMapping Name="TransactionTypes">
+            <EntityTypeMapping TypeName="PayrollModel.TransactionType">
+              <MappingFragment StoreEntitySet="TransactionTypes">
+                <ScalarProperty Name="isIncome" ColumnName="isIncome" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SalaryDependent" ColumnName="SalaryDependent" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -425,6 +364,7 @@
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
         <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -28,8 +28,7 @@ namespace Nomina
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
-        public virtual DbSet<IncomeType> IncomeTypes { get; set; }
-        public virtual DbSet<DeductionType> DeductionTypes { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
+        public virtual DbSet<TransactionType> TransactionTypes { get; set; }
     }
 }
