@@ -240,7 +240,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SalaryDependent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SalaryDependent" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="Max" />
           <Property Name="Status" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="isIncome" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Transactions" Relationship="PayrollModel.FK_TransactionTransactionType" FromRole="TransactionType" ToRole="Transaction" />

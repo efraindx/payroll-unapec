@@ -18,6 +18,8 @@ namespace Nomina
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new PositionForm());
             Application.Run(new DepartmentForm());
+            Application.Run(new IncomeTypeForm());
+            Application.Run(new DeductionTypeForm());
         }
     }
 }
