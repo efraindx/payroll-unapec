@@ -215,6 +215,8 @@
       <LastGenOutput>PayrollModel.cs</LastGenOutput>
       <DependentUpon>PayrollModel.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\favicon.ico" />
+    <None Include="Resources\%24thisIcon.ico" />
     <None Include="Resources\favicon.png" />
     <None Include="Resources\iconIncomeType.png" />
     <None Include="Resources\iconDeductionType.png" />

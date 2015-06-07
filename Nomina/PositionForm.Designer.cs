@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PositionForm));
             this.components = new System.ComponentModel.Container();
             this.positionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.payrollunapecDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -262,6 +263,7 @@
             this.Controls.Add(this.label1);
             this.Name = "PositionForm";
             this.Text = "Mantenimiento de Puestos";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("favicon")));
             this.Load += new System.EventHandler(this.StandardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.payrollunapecDataSetBindingSource)).EndInit();
