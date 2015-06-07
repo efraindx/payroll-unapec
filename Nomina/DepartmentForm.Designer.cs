@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartmentForm));
             this.label1 = new System.Windows.Forms.Label();
             this.departmentName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -176,6 +177,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.departmentName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DepartmentForm";
             this.Text = "Mantenimiento de Departamentos";
             this.Load += new System.EventHandler(this.DepartmentForm_Load);
