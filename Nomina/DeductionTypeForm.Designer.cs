@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeductionTypeForm));
             this.deductionStatus = new System.Windows.Forms.ComboBox();
             this.deductionDependency = new System.Windows.Forms.ComboBox();
             this.deductionName = new System.Windows.Forms.TextBox();
@@ -227,6 +228,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DeductionTypeForm";
             this.Text = "Matenimiento de Tipo de Deducciones";
             this.Load += new System.EventHandler(this.DeductionTypeForm_Load);
