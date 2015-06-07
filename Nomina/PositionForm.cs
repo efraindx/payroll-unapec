@@ -5,46 +5,34 @@ using System.Windows.Forms;
 
 namespace Nomina
 {
-    public partial class PositionForm : Form
+    public partial class PositionForm : StandardForm
     {
         public PositionForm()
         {
             InitializeComponent();
         }
 
-        private void PositionForm_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the '_payroll_unapecDataSet.Positions' table. You can move, or remove it, as needed.
-            updateTableAdapter();
-        }
-
-        private void updateTableAdapter()
+        public override void UpdateTableAdapter()
         {
             this.positionsTableAdapter.Fill(this._payroll_unapecDataSet.Positions);
         }
 
-        private void savePosition_Click(object sender, EventArgs e)
+        public override void SaveNewItem()
         {
-            if (validateForm())
+            using (var dbContext = new PayrollDbContext())
             {
-                using (var dbContext = new PayrollDbContext())
-                {
-                    Position position = new Position();
-                    position.Name = positionName.Text;
-                    position.RiskLevel = cmbRiesgo.SelectedItem.ToString();
-                    position.MinSalary = double.Parse(positionMinSalary.Text);
-                    position.MaxSalary = double.Parse(positionMaxSalary.Text);
+                Position position = new Position();
+                position.Name = positionName.Text;
+                position.RiskLevel = cmbRiesgo.SelectedItem.ToString();
+                position.MinSalary = double.Parse(positionMinSalary.Text);
+                position.MaxSalary = double.Parse(positionMaxSalary.Text);
 
-                    dbContext.Positions.Add(position);
-                    dbContext.SaveChanges();
-                    updateTableAdapter();
-                    setDefaultValuesToInputs();
-                }
+                dbContext.Positions.Add(position);
+                dbContext.SaveChanges();
             }
         }
 
-        //Set default values to inputs on save item
-        private void setDefaultValuesToInputs()
+        public override void ResetInputValues()
         {
             positionName.Text = "";
             positionMinSalary.Text = "";
@@ -52,12 +40,12 @@ namespace Nomina
             cmbRiesgo.SelectedIndex = -1;
         }
 
-        private bool validateForm()
+        public override bool ValidateForm()
         {
-            return validateName() && validateRisk() && validateSalaries();
+            return ValidateName() && ValidateRisk() && ValidateSalaries();
         }
 
-        private bool validateName()
+        private bool ValidateName()
         {
             bool isValid = !string.IsNullOrWhiteSpace(positionName.Text);
             if (!isValid)
@@ -68,7 +56,7 @@ namespace Nomina
             return isValid;
         }
 
-        private bool validateRisk()
+        private bool ValidateRisk()
         {
             int selectedIndex = cmbRiesgo.SelectedIndex;
             bool isValid = selectedIndex > 0;
@@ -81,7 +69,7 @@ namespace Nomina
             return isValid;
         }
 
-        private bool validateSalaries()
+        private bool ValidateSalaries()
         {
             double minSalary, maxSalary = 0;
             bool isValid = false;
@@ -103,108 +91,67 @@ namespace Nomina
             return isValid;
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        public override void DeleteItem(int itemID)
         {
-            //validate if any row has been selected
-            if (positionsDataGrid.SelectedRows.Count > 0)
+            using (var dbContext = new PayrollDbContext())
             {
-                int positionID = 0;
-                foreach (DataGridViewRow selectedRow in positionsDataGrid.SelectedRows)
+                //delete selected positions
+                var currentPosition = dbContext.Positions.Where(p => p.Id == itemID).FirstOrDefault();
+                if (currentPosition != null)
                 {
-                    //confirm for delete position
-                    var confirmResult = MessageBox.Show("Está seguro que desea eliminar el/los puestos seleccionados?", "Confirmar Eliminación", MessageBoxButtons.YesNo);
-                    if (confirmResult == DialogResult.Yes)
-                    {
-                        //try to parse the column ID value to int
-                        if (int.TryParse(selectedRow.Cells[0].Value.ToString(), out positionID))
-                        {
-                            using (var dbContext = new PayrollDbContext())
-                            {
-                                //delete selected positions
-                                var currentPosition = dbContext.Positions.Where(p => p.Id == positionID).FirstOrDefault();
-                                if (currentPosition != null)
-                                {
-                                    dbContext.Positions.Remove(currentPosition);
-                                    dbContext.SaveChanges();
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        //exit if no confirm for delete position
-                        return;
-                    }
+                    dbContext.Positions.Remove(currentPosition);
+                    dbContext.SaveChanges();
                 }
-
-                MessageBox.Show("Los puestos seleccionados fueron eliminados.");
-                updateTableAdapter();
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar al menos una fila a eliminar.");
             }
         }
 
-        private void positionsDataGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        public override void UpdateItem(int itemID, int rowIndex, int columnIndex)
         {
-            //validate that current row is valid
-            if (e.RowIndex > -1)
+            using (var dbContext = new PayrollDbContext())
             {
-                int positionID;
-                //get id of position and try to parse it
-                if (int.TryParse(positionsDataGrid.Rows[e.RowIndex].Cells[0].Value.ToString(), out positionID))
+                var positionToUpdate = dbContext.Positions.Where(p => p.Id == itemID).FirstOrDefault();
+                if (positionToUpdate != null)
                 {
-                    using (var dbContext = new PayrollDbContext())
+                    //update attributes of position
+                    switch (columnIndex)
                     {
-                        var positionToUpdate = dbContext.Positions.Where(p => p.Id == positionID).FirstOrDefault();
-                        if (positionToUpdate != null)
-                        {
-                            //update attributes of position
-                            switch (e.ColumnIndex)
+                        case 1:
+                            string newName = positionsDataGrid.Rows[rowIndex].Cells[1].Value.ToString();
+                            positionToUpdate.Name = newName;
+                            dbContext.SaveChanges();
+                            break;
+
+                        case 2:
+                            string newRiskLevel = positionsDataGrid.Rows[rowIndex].Cells[2].Value.ToString();
+                            positionToUpdate.RiskLevel = newRiskLevel;
+                            dbContext.SaveChanges();
+                            break;
+
+                        case 3:
+                            int newMinSalaxy;
+                            if (int.TryParse(positionsDataGrid.Rows[rowIndex].Cells[3].Value.ToString(), out newMinSalaxy))
                             {
-                                case 1:
-                                    string newName = positionsDataGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
-                                    positionToUpdate.Name = newName;
-                                    dbContext.SaveChanges();
-                                    break;
-
-                                case 2:
-                                    string newRiskLevel = positionsDataGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-                                    positionToUpdate.RiskLevel = newRiskLevel;
-                                    dbContext.SaveChanges();
-                                    break;
-
-                                case 3:
-                                    int newMinSalaxy;
-                                    if (int.TryParse(positionsDataGrid.Rows[e.RowIndex].Cells[3].Value.ToString(), out newMinSalaxy))
-                                    {
-                                        positionToUpdate.MinSalary = newMinSalaxy;
-                                        dbContext.SaveChanges();
-                                    }
-                                    break;
-
-                                case 4:
-                                    int newMaxSalary;
-                                    if (int.TryParse(positionsDataGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), out newMaxSalary))
-                                    {
-                                        positionToUpdate.MaxSalary = newMaxSalary;
-                                        dbContext.SaveChanges();
-                                    }
-                                    break;
+                                positionToUpdate.MinSalary = newMinSalaxy;
+                                dbContext.SaveChanges();
                             }
-                        }
+                            break;
+
+                        case 4:
+                            int newMaxSalary;
+                            if (int.TryParse(positionsDataGrid.Rows[rowIndex].Cells[4].Value.ToString(), out newMaxSalary))
+                            {
+                                positionToUpdate.MaxSalary = newMaxSalary;
+                                dbContext.SaveChanges();
+                            }
+                            break;
                     }
                 }
-                
-                MessageBox.Show("Puesto actualizado satisfactoriamente.");
             }
         }
 
-        //Message to show when validations error
-        private void positionsDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        public override DataGridView GetDataGrid()
         {
-            MessageBox.Show("Inserte valores válidos, los salarios deben ser números.");
+            return positionsDataGrid;
         }
     }
 }

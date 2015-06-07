@@ -149,8 +149,8 @@
             this.positionsDataGrid.Name = "positionsDataGrid";
             this.positionsDataGrid.Size = new System.Drawing.Size(523, 167);
             this.positionsDataGrid.TabIndex = 0;
-            this.positionsDataGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.positionsDataGrid_CellValueChanged);
-            this.positionsDataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.positionsDataGrid_DataError);
+            this.positionsDataGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellValueChanged);
+            this.positionsDataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGrid_DataError);
             // 
             // cmbRiesgo
             // 
@@ -173,7 +173,7 @@
             this.savePosition.TabIndex = 9;
             this.savePosition.Text = "Guardar";
             this.savePosition.UseVisualStyleBackColor = true;
-            this.savePosition.Click += new System.EventHandler(this.savePosition_Click);
+            this.savePosition.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // positionsTableAdapter
             // 
@@ -201,7 +201,7 @@
             this.btnEliminar.TabIndex = 13;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminar.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -262,7 +262,7 @@
             this.Controls.Add(this.label1);
             this.Name = "PositionForm";
             this.Text = "Mantenimiento de Puestos";
-            this.Load += new System.EventHandler(this.PositionForm_Load);
+            this.Load += new System.EventHandler(this.StandardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.payrollunapecDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet)).EndInit();
