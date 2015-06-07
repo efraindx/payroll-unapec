@@ -116,14 +116,12 @@ namespace Nomina
                     switch (columnIndex)
                     {
                         case 1:
-                            string newName = newValue;
-                            positionToUpdate.Name = newName;
+                            positionToUpdate.Name = newValue;
                             dbContext.SaveChanges();
                             break;
 
                         case 2:
-                            string newRiskLevel = newValue;
-                            positionToUpdate.RiskLevel = newRiskLevel;
+                            positionToUpdate.RiskLevel = newValue;
                             dbContext.SaveChanges();
                             break;
 

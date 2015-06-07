@@ -26,6 +26,11 @@ C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.Properties.
 C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.csproj.GenerateResource.Cache
 C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.exe
 C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.pdb
+<<<<<<< HEAD
 C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.DeductionTypeForm.resources
 C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.IncomeTypeForm.resources
 C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.Home.resources
+=======
+C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.DeductionTypeForm.resources
+C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.IncomeTypeForm.resources
+>>>>>>> 3232b3d0a5da4723180d8d2f4999cc2e0901b169

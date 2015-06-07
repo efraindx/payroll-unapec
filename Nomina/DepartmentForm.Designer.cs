@@ -83,7 +83,7 @@
             this.deleteDepartment.TabIndex = 4;
             this.deleteDepartment.Text = "Eliminar";
             this.deleteDepartment.UseVisualStyleBackColor = true;
-            this.deleteDepartment.Click += new System.EventHandler(this.cancelDepartmentForm_Click);
+            this.deleteDepartment.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // saveDepartment
             // 
@@ -93,7 +93,7 @@
             this.saveDepartment.TabIndex = 5;
             this.saveDepartment.Text = "Guardar";
             this.saveDepartment.UseVisualStyleBackColor = true;
-            this.saveDepartment.Click += new System.EventHandler(this.saveDepartment_Click);
+            this.saveDepartment.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // departmentsDataGrid
             // 
@@ -110,7 +110,8 @@
             this.departmentsDataGrid.Name = "departmentsDataGrid";
             this.departmentsDataGrid.Size = new System.Drawing.Size(327, 123);
             this.departmentsDataGrid.TabIndex = 6;
-            this.departmentsDataGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.departmentsDataGrid_CellValueChanged);
+            this.departmentsDataGrid.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DataGrid_CellParsing);
+            this.departmentsDataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGrid_DataError);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -180,7 +181,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DepartmentForm";
             this.Text = "Mantenimiento de Departamentos";
-            this.Load += new System.EventHandler(this.DepartmentForm_Load);
+            this.Load += new System.EventHandler(this.StandardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.departmentsDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet)).EndInit();
