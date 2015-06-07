@@ -29,6 +29,12 @@ namespace Nomina
             this.departmentsTableAdapter.Fill(this._payroll_unapecDataSet.Departments);
         }
 
+        private  void resetInputs()
+        {
+            departmentName.Text = "";
+            departmentLocation.Text = "";
+        }
+
         private void saveDepartment_Click(object sender, EventArgs e)
         {
             if (validateForm())
@@ -71,6 +77,88 @@ namespace Nomina
             }
 
             return isValid;
+        }
+
+        private void cancelDepartmentForm_Click(object sender, EventArgs e)
+        {
+            //validate if any row has been selected
+            if (departmentsDataGrid.SelectedRows.Count > 0)
+            {
+                int departmentId = 0;
+                foreach (DataGridViewRow selectedRow in departmentsDataGrid.SelectedRows)
+                {
+                    //confirm for delete position
+                    var confirmResult = MessageBox.Show("Está seguro que desea eliminar el/los departamentos seleccionados?", "Confirmar Eliminación", MessageBoxButtons.YesNo);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        //try to parse the column ID value to int
+                        if (int.TryParse(selectedRow.Cells[0].Value.ToString(), out departmentId))
+                        {
+                            using (var dbContext = new PayrollDbContext())
+                            {
+                                //delete selected positions
+                                var currentDepartment = dbContext.Departments.Where(d => d.Id == departmentId).FirstOrDefault();
+                                if (currentDepartment != null)
+                                {
+                                    dbContext.Departments.Remove(currentDepartment);
+                                    dbContext.SaveChanges();
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //exit if no confirm for delete position
+                        return;
+                    }
+                }
+
+                MessageBox.Show("Los departamentos seleccionados fueron eliminados.");
+                updateTableAdapter();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar al menos una fila a eliminar.");
+            }
+        }
+
+        private void departmentsDataGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            //validate that current row is valid
+            if (e.RowIndex > -1)
+            {
+                int departmentId;
+                //get id of position and try to parse it
+                if (int.TryParse(departmentsDataGrid.Rows[e.RowIndex].Cells[0].Value.ToString(), out departmentId))
+                {
+                    using (var dbContext = new PayrollDbContext())
+                    {
+                        var departmentToUpdate = dbContext.Departments.Where(d => d.Id == departmentId).FirstOrDefault();
+                        if (departmentToUpdate != null)
+                        {
+                            //update attributes of position
+                            switch (e.ColumnIndex)
+                            {
+                                case 1:
+                                    string newName = departmentsDataGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
+                                    departmentToUpdate.Name = newName;
+                                    dbContext.SaveChanges();
+                                    break;
+
+                                case 2:
+                                    string newLocation = departmentsDataGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
+                                    departmentToUpdate.Location = newLocation;
+                                    dbContext.SaveChanges();
+                                    break;
+
+                                
+                            }
+                        }
+                    }
+                }
+
+                MessageBox.Show("Departamento actualizado satisfactoriamente.");
+            }
         }
     }
 }
