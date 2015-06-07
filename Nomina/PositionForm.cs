@@ -105,7 +105,7 @@ namespace Nomina
             }
         }
 
-        public override void UpdateItem(int itemID, int rowIndex, int columnIndex)
+        public override void UpdateItem(int itemID, int rowIndex, int columnIndex, string newValue)
         {
             using (var dbContext = new PayrollDbContext())
             {
@@ -116,20 +116,20 @@ namespace Nomina
                     switch (columnIndex)
                     {
                         case 1:
-                            string newName = positionsDataGrid.Rows[rowIndex].Cells[1].Value.ToString();
+                            string newName = newValue;
                             positionToUpdate.Name = newName;
                             dbContext.SaveChanges();
                             break;
 
                         case 2:
-                            string newRiskLevel = positionsDataGrid.Rows[rowIndex].Cells[2].Value.ToString();
+                            string newRiskLevel = newValue;
                             positionToUpdate.RiskLevel = newRiskLevel;
                             dbContext.SaveChanges();
                             break;
 
                         case 3:
                             int newMinSalaxy;
-                            if (int.TryParse(positionsDataGrid.Rows[rowIndex].Cells[3].Value.ToString(), out newMinSalaxy))
+                            if (int.TryParse(newValue, out newMinSalaxy))
                             {
                                 positionToUpdate.MinSalary = newMinSalaxy;
                                 dbContext.SaveChanges();
@@ -138,7 +138,7 @@ namespace Nomina
 
                         case 4:
                             int newMaxSalary;
-                            if (int.TryParse(positionsDataGrid.Rows[rowIndex].Cells[4].Value.ToString(), out newMaxSalary))
+                            if (int.TryParse(newValue, out newMaxSalary))
                             {
                                 positionToUpdate.MaxSalary = newMaxSalary;
                                 dbContext.SaveChanges();

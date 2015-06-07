@@ -20,7 +20,7 @@ namespace Nomina
 
         public abstract void DeleteItem(int itemID);
 
-        public abstract void UpdateItem(int itemID, int rowIndex, int columnIndex);
+        public abstract void UpdateItem(int itemID, int rowIndex, int columnIndex, string newValue);
 
         public abstract DataGridView GetDataGrid();
 
@@ -68,16 +68,16 @@ namespace Nomina
             }
         }
 
-        public void DataGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        public void DataGrid_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
         {
             //validate that current row is valid
-            if (e.RowIndex > -1)
+            if (e.RowIndex > -1 && !String.IsNullOrWhiteSpace(e.Value.ToString()))
             {
                 int itemID;
                 //get id of position and try to parse it
                 if (int.TryParse(GetDataGrid().Rows[e.RowIndex].Cells[0].Value.ToString(), out itemID))
                 {
-                    UpdateItem(itemID, e.RowIndex, e.ColumnIndex);
+                    UpdateItem(itemID, e.RowIndex, e.ColumnIndex, e.Value.ToString());
                 }
 
                 MessageBox.Show("Elemento actualizado satisfactoriamente.");

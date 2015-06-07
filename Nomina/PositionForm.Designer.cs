@@ -149,7 +149,7 @@
             this.positionsDataGrid.Name = "positionsDataGrid";
             this.positionsDataGrid.Size = new System.Drawing.Size(523, 167);
             this.positionsDataGrid.TabIndex = 0;
-            this.positionsDataGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellValueChanged);
+            this.positionsDataGrid.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DataGrid_CellParsing);
             this.positionsDataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGrid_DataError);
             // 
             // cmbRiesgo
