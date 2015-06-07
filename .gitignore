@@ -37,3 +37,5 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+/Nomina/bin/Debug
+/Nomina/obj/Debug
