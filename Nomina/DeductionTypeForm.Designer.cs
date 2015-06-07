@@ -35,7 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this._payroll_unapecDataSet1 = new Nomina._payroll_unapecDataSet1();
             this.transactionTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.transactionTypesTableAdapter = new Nomina._payroll_unapecDataSet1TableAdapters.TransactionTypesTableAdapter();
@@ -47,10 +46,11 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTypesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTypesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // deductionStatus
@@ -110,15 +110,6 @@
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Nombre";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Nomina.Properties.Resources.iconDeduction;
-            this.pictureBox1.Location = new System.Drawing.Point(249, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 120);
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
             // 
             // _payroll_unapecDataSet1
             // 
@@ -212,15 +203,24 @@
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Nomina.Properties.Resources.iconDeductionType;
+            this.pictureBox1.Location = new System.Drawing.Point(251, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(143, 127);
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
             // DeductionTypeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(397, 404);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.transactionTypesDataGridView);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.deductionStatus);
             this.Controls.Add(this.deductionDependency);
             this.Controls.Add(this.deductionName);
@@ -230,18 +230,16 @@
             this.Name = "DeductionTypeForm";
             this.Text = "Matenimiento de Tipo de Deducciones";
             this.Load += new System.EventHandler(this.DeductionTypeForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTypesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTypesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox deductionStatus;
         private System.Windows.Forms.ComboBox deductionDependency;
         private System.Windows.Forms.TextBox deductionName;
@@ -259,5 +257,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

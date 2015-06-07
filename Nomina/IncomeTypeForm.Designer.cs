@@ -44,9 +44,9 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTypesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTypesDataGridView)).BeginInit();
@@ -185,15 +185,6 @@
             this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Nomina.Properties.Resources.iconIncome;
-            this.pictureBox1.Location = new System.Drawing.Point(249, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 120);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(15, 132);
@@ -212,15 +203,24 @@
             this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Nomina.Properties.Resources.iconIncomeType;
+            this.pictureBox1.Location = new System.Drawing.Point(253, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 124);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // IncomeTypeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 412);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.transactionTypesDataGridView);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.incomeStatus);
             this.Controls.Add(this.incomeDependency);
             this.Controls.Add(this.incomeName);
@@ -247,7 +247,6 @@
         private System.Windows.Forms.TextBox incomeName;
         private System.Windows.Forms.ComboBox incomeDependency;
         private System.Windows.Forms.ComboBox incomeStatus;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private _payroll_unapecDataSet1 _payroll_unapecDataSet1;
         private System.Windows.Forms.BindingSource transactionTypesBindingSource;
         private _payroll_unapecDataSet1TableAdapters.TransactionTypesTableAdapter transactionTypesTableAdapter;
@@ -259,5 +258,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

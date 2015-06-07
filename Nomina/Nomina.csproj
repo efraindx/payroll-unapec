@@ -203,6 +203,8 @@
       <LastGenOutput>PayrollModel.cs</LastGenOutput>
       <DependentUpon>PayrollModel.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\iconIncomeType.png" />
+    <None Include="Resources\iconDeductionType.png" />
     <None Include="Resources\iconIncome.png" />
     <None Include="Resources\iconDeduction.png" />
     <None Include="Resources\iconDepartment.png" />
