@@ -59,7 +59,10 @@ namespace Nomina
             if(3 == column)
             {
                 string payrollName = payrollsDataGridView.Rows[row].Cells[1].Value.ToString();
-                MessageBox.Show( "Correr nomina " + payrollName );
+                TransactionForm transactionForm = new TransactionForm();
+                transactionForm.payrollName.Text = "Nómina " + payrollName;
+                transactionForm.Text = "Nómina " + payrollName;
+                transactionForm.Show();
             }
         }
     }
