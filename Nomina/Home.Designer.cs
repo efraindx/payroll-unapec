@@ -33,6 +33,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.puestosForm = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button3
@@ -78,7 +79,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::Nomina.Properties.Resources.iconDepartment;
-            this.button1.Location = new System.Drawing.Point(203, 28);
+            this.button1.Location = new System.Drawing.Point(376, 28);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 145);
             this.button1.TabIndex = 1;
@@ -96,7 +97,7 @@
             this.puestosForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.puestosForm.ForeColor = System.Drawing.SystemColors.ControlText;
             this.puestosForm.Image = global::Nomina.Properties.Resources.iconPuesto;
-            this.puestosForm.Location = new System.Drawing.Point(29, 28);
+            this.puestosForm.Location = new System.Drawing.Point(203, 28);
             this.puestosForm.Name = "puestosForm";
             this.puestosForm.Size = new System.Drawing.Size(145, 145);
             this.puestosForm.TabIndex = 0;
@@ -105,12 +106,30 @@
             this.puestosForm.UseVisualStyleBackColor = false;
             this.puestosForm.Click += new System.EventHandler(this.puestosForm_Click);
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(0)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Image = global::Nomina.Properties.Resources.iconPayroll;
+            this.button4.Location = new System.Drawing.Point(29, 28);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(145, 145);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Nominas";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(149)))), ((int)(((byte)(190)))));
-            this.ClientSize = new System.Drawing.Size(389, 369);
+            this.ClientSize = new System.Drawing.Size(549, 369);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -129,5 +148,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

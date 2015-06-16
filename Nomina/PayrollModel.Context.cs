@@ -30,5 +30,6 @@ namespace Nomina
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<TransactionType> TransactionTypes { get; set; }
+        public virtual DbSet<Payroll> Payrolls { get; set; }
     }
 }

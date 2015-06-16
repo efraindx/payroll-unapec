@@ -36,5 +36,10 @@ namespace Nomina
         {
             new DeductionTypeForm().Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new PayrollForm().Show();
+        }
     }
 }

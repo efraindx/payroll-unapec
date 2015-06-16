@@ -12,17 +12,10 @@ namespace Nomina
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class Payroll
     {
         public int Id { get; set; }
-        public string Cedula { get; set; }
         public string Name { get; set; }
-        public double Salary { get; set; }
-        public string PayrollId { get; set; }
-        public int Payroll_Id { get; set; }
-    
-        public virtual Department Department { get; set; }
-        public virtual Position Position { get; set; }
-        public virtual Payroll Payroll { get; set; }
+        public string Periocity { get; set; }
     }
 }

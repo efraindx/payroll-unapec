@@ -38,6 +38,7 @@ namespace Nomina
 
                 dbContext.Departments.Add(department);
                 dbContext.SaveChanges();
+                this.UpdateTableAdapter();
             }
         }
 

@@ -87,6 +87,15 @@
     <Compile Include="IncomeTypeForm.Designer.cs">
       <DependentUpon>IncomeTypeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Payroll.cs">
+      <DependentUpon>PayrollModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayrollForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PayrollForm.Designer.cs">
+      <DependentUpon>PayrollForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PayrollModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,6 +149,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_payroll_unapecDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_payroll_unapecDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_payroll_unapecDataSet2.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DeductionTypeForm.resx">
       <DependentUpon>DeductionTypeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IncomeTypeForm.resx">
       <DependentUpon>IncomeTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PayrollForm.resx">
+      <DependentUpon>PayrollForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PositionForm.resx">
       <DependentUpon>PositionForm.cs</DependentUpon>
@@ -199,6 +216,17 @@
     <None Include="_payroll_unapecDataSet1.xss">
       <DependentUpon>_payroll_unapecDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="_payroll_unapecDataSet2.xsc">
+      <DependentUpon>_payroll_unapecDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_payroll_unapecDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_payroll_unapecDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_payroll_unapecDataSet2.xss">
+      <DependentUpon>_payroll_unapecDataSet2.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -215,6 +243,7 @@
       <LastGenOutput>PayrollModel.cs</LastGenOutput>
       <DependentUpon>PayrollModel.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\iconPayroll.png" />
     <None Include="Resources\favicon.ico" />
     <None Include="Resources\%24thisIcon.ico" />
     <None Include="Resources\favicon.png" />

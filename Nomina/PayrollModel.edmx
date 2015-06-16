@@ -22,9 +22,18 @@
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Salary" Type="float" Nullable="false" />
           <Property Name="PayrollId" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Payroll_Id" Type="int" Nullable="false" />
           <Property Name="Department_Id" Type="int" Nullable="false" />
           <Property Name="DepartmentEmployee_Employee_Id" Type="int" Nullable="false" />
           <Property Name="Position_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payrolls">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Periocity" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Positions">
           <Key>
@@ -44,8 +53,8 @@
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Amount" Type="float" Nullable="false" />
           <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Employee_Id" Type="int" Nullable="false" />
           <Property Name="TransactionType_Id" Type="int" Nullable="false" />
+          <Property Name="Employee_Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TransactionTypes">
           <Key>
@@ -78,6 +87,18 @@
             </Principal>
             <Dependent Role="Employees">
               <PropertyRef Name="Department_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePayroll">
+          <End Role="Payrolls" Type="Self.Payrolls" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payrolls">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Payroll_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -120,6 +141,7 @@
         <EntityContainer Name="Model1StoreContainer">
           <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payrolls" EntityType="Self.Payrolls" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionTypes" EntityType="Self.TransactionTypes" Schema="dbo" store:Type="Tables" />
@@ -129,6 +151,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_EmployeeDepartment" Association="Self.FK_EmployeeDepartment">
             <End Role="Departments" EntitySet="Departments" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePayroll" Association="Self.FK_EmployeePayroll">
+            <End Role="Payrolls" EntitySet="Payrolls" />
             <End Role="Employees" EntitySet="Employees" />
           </AssociationSet>
           <AssociationSet Name="FK_EmployeePosition" Association="Self.FK_EmployeePosition">
@@ -174,6 +200,11 @@
             <End Role="TransactionType" EntitySet="TransactionTypes" />
             <End Role="Transaction" EntitySet="Transactions" />
           </AssociationSet>
+          <EntitySet Name="Payrolls" EntityType="PayrollModel.Payroll" />
+          <AssociationSet Name="FK_EmployeePayroll" Association="PayrollModel.FK_EmployeePayroll">
+            <End Role="Payroll1" EntitySet="Payrolls" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Employee">
           <Key>
@@ -186,6 +217,8 @@
           <Property Name="PayrollId" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Department" Relationship="PayrollModel.EmployeeDepartment" FromRole="Employee" ToRole="Department" />
           <NavigationProperty Name="Position" Relationship="PayrollModel.EmployeePosition" FromRole="Employee" ToRole="Position" />
+          <Property Name="Payroll_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Payroll" Relationship="PayrollModel.FK_EmployeePayroll" FromRole="Employee" ToRole="Payroll1" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -257,6 +290,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Payroll">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Periocity" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_EmployeePayroll">
+          <End Type="PayrollModel.Payroll" Role="Payroll1" Multiplicity="1" />
+          <End Type="PayrollModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payroll1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Payroll_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -266,7 +319,8 @@
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="IsTypeOf(PayrollModel.Employee)">
         <MappingFragment StoreEntitySet="Employees">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Payroll_Id" ColumnName="Payroll_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Cedula" ColumnName="Cedula" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Salary" ColumnName="Salary" />
@@ -343,6 +397,15 @@
                 <ScalarProperty Name="isIncome" ColumnName="isIncome" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="SalaryDependent" ColumnName="SalaryDependent" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payrolls">
+            <EntityTypeMapping TypeName="PayrollModel.Payroll">
+              <MappingFragment StoreEntitySet="Payrolls">
+                <ScalarProperty Name="Periocity" ColumnName="Periocity" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
