@@ -50,5 +50,17 @@ namespace Nomina
                 this.UpdateTableAdapter();
             }
         }
+
+        private void payrollsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int column = e.ColumnIndex;
+            int row = e.RowIndex;
+            
+            if(3 == column)
+            {
+                string payrollName = payrollsDataGridView.Rows[row].Cells[1].Value.ToString();
+                MessageBox.Show( "Correr nomina " + payrollName );
+            }
+        }
     }
 }

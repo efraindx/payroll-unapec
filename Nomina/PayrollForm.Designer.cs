@@ -38,6 +38,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
             this.payrollsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._payroll_unapecDataSet2 = new Nomina._payroll_unapecDataSet2();
             this.button1 = new System.Windows.Forms.Button();
@@ -98,12 +99,14 @@
             this.payrollsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.dataGridViewTextBoxColumn3,
+            this.Action});
             this.payrollsDataGridView.DataSource = this.payrollsBindingSource;
             this.payrollsDataGridView.Location = new System.Drawing.Point(16, 153);
             this.payrollsDataGridView.Name = "payrollsDataGridView";
             this.payrollsDataGridView.Size = new System.Drawing.Size(333, 137);
             this.payrollsDataGridView.TabIndex = 5;
+            this.payrollsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.payrollsDataGridView_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -118,7 +121,6 @@
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
             this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 130;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -131,7 +133,16 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn3.Width = 130;
+            // 
+            // Action
+            // 
+            this.Action.HeaderText = "Accion";
+            this.Action.Name = "Action";
+            this.Action.ReadOnly = true;
+            this.Action.Text = "Correr";
+            this.Action.ToolTipText = "Correr";
+            this.Action.UseColumnTextForButtonValue = true;
+            this.Action.Width = 60;
             // 
             // payrollsBindingSource
             // 
@@ -218,11 +229,12 @@
         private _payroll_unapecDataSet2TableAdapters.PayrollsTableAdapter payrollsTableAdapter;
         private _payroll_unapecDataSet2TableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView payrollsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewButtonColumn Action;
     }
 }
