@@ -10,33 +10,19 @@ using System.Windows.Forms;
 
 namespace Nomina
 {
-    public partial class PayrollForm : Form
+    public partial class PayrollForm : StandardForm
     {
         public PayrollForm()
         {
             InitializeComponent();
         }
 
-        private void payrollsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.payrollsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this._payroll_unapecDataSet2);
-
-        }
-
-        private void PayrollForm_Load(object sender, EventArgs e)
-        {
-            UpdateTableAdapter();
-
-        }
-
-        private void UpdateTableAdapter()
+        public override void UpdateTableAdapter()
         {
             this.payrollsTableAdapter.Fill(this._payroll_unapecDataSet2.Payrolls);
         }
 
-        private void SaveNewItem(object sender, EventArgs e)
+        public override void SaveNewItem(object sender, EventArgs e)
         {
             using (var dbContext = new PayrollDbContext())
             {
@@ -44,7 +30,6 @@ namespace Nomina
                 payroll.Name = payrollName.Text;
                 payroll.Periocity = payrollPeriocity.Text;
                 
-
                 dbContext.Payrolls.Add(payroll);
                 dbContext.SaveChanges();
                 this.UpdateTableAdapter();
@@ -67,6 +52,39 @@ namespace Nomina
                 transactionForm.AddAutomaticTransactions();
                 transactionForm.Show();
             }
+        }
+
+        public override void ResetInputValues()
+        {
+            payrollName.Text = "";
+            payrollPeriocity.SelectedIndex = -1;
+        }
+
+        public bool ValidateName()
+        {
+            bool isValid = !string.IsNullOrWhiteSpace(payrollName.Text);
+            if (!isValid)
+            {
+                MessageBox.Show("Debe insertar un nombre.");
+            }
+
+            return isValid;
+        }
+
+        public bool ValidatePeriodicity()
+        {
+            bool isValid = payrollPeriocity.SelectedIndex > -1;
+            if (!isValid)
+            {
+                MessageBox.Show("Debe seleccionar un periodo para la nómina.");
+            }
+
+            return isValid;
+        }
+
+        public override bool ValidateForm()
+        {
+            return ValidateName() && ValidatePeriodicity();
         }
     }
 }

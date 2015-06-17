@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeductionTypeForm));
-            this.deductionStatus = new System.Windows.Forms.ComboBox();
-            this.deductionDependency = new System.Windows.Forms.ComboBox();
-            this.deductionName = new System.Windows.Forms.TextBox();
+            this.cmbDeductionStatus = new System.Windows.Forms.ComboBox();
+            this.cmbDeductionSalaryDependent = new System.Windows.Forms.ComboBox();
+            this.txtDeductionName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@
             this.transactionTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.transactionTypesTableAdapter = new Nomina._payroll_unapecDataSet1TableAdapters.TransactionTypesTableAdapter();
             this.tableAdapterManager = new Nomina._payroll_unapecDataSet1TableAdapters.TableAdapterManager();
-            this.transactionTypesDataGridView = new System.Windows.Forms.DataGridView();
+            this.deductionTypeDataGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -50,67 +50,67 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTypesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionTypesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deductionTypeDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // deductionStatus
+            // cmbDeductionStatus
             // 
-            this.deductionStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.deductionStatus.FormattingEnabled = true;
-            this.deductionStatus.Items.AddRange(new object[] {
-            "ACTIVO",
-            "INACTIVO"});
-            this.deductionStatus.Location = new System.Drawing.Point(95, 62);
-            this.deductionStatus.Name = "deductionStatus";
-            this.deductionStatus.Size = new System.Drawing.Size(121, 21);
-            this.deductionStatus.TabIndex = 12;
+            this.cmbDeductionStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDeductionStatus.FormattingEnabled = true;
+            this.cmbDeductionStatus.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.cmbDeductionStatus.Location = new System.Drawing.Point(95, 62);
+            this.cmbDeductionStatus.Name = "cmbDeductionStatus";
+            this.cmbDeductionStatus.Size = new System.Drawing.Size(121, 21);
+            this.cmbDeductionStatus.TabIndex = 12;
             // 
-            // deductionDependency
+            // cmbDeductionSalaryDependent
             // 
-            this.deductionDependency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.deductionDependency.FormattingEnabled = true;
-            this.deductionDependency.Items.AddRange(new object[] {
-            "NINGUNA",
-            "SALARIAL"});
-            this.deductionDependency.Location = new System.Drawing.Point(95, 95);
-            this.deductionDependency.Name = "deductionDependency";
-            this.deductionDependency.Size = new System.Drawing.Size(121, 21);
-            this.deductionDependency.TabIndex = 11;
+            this.cmbDeductionSalaryDependent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDeductionSalaryDependent.FormattingEnabled = true;
+            this.cmbDeductionSalaryDependent.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cmbDeductionSalaryDependent.Location = new System.Drawing.Point(122, 95);
+            this.cmbDeductionSalaryDependent.Name = "cmbDeductionSalaryDependent";
+            this.cmbDeductionSalaryDependent.Size = new System.Drawing.Size(94, 21);
+            this.cmbDeductionSalaryDependent.TabIndex = 11;
             // 
-            // deductionName
+            // txtDeductionName
             // 
-            this.deductionName.Location = new System.Drawing.Point(95, 30);
-            this.deductionName.Name = "deductionName";
-            this.deductionName.Size = new System.Drawing.Size(121, 20);
-            this.deductionName.TabIndex = 10;
+            this.txtDeductionName.Location = new System.Drawing.Point(95, 30);
+            this.txtDeductionName.Name = "txtDeductionName";
+            this.txtDeductionName.Size = new System.Drawing.Size(121, 20);
+            this.txtDeductionName.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 98);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.Size = new System.Drawing.Size(104, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Dependencia";
+            this.label3.Text = "Depende de Salario:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Estado";
+            this.label2.Text = "Estado:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre:";
             // 
             // _payroll_unapecDataSet1
             // 
@@ -133,22 +133,25 @@
             this.tableAdapterManager.TransactionTypesTableAdapter = this.transactionTypesTableAdapter;
             this.tableAdapterManager.UpdateOrder = Nomina._payroll_unapecDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // transactionTypesDataGridView
+            // deductionTypeDataGrid
             // 
-            this.transactionTypesDataGridView.AllowUserToAddRows = false;
-            this.transactionTypesDataGridView.AllowUserToDeleteRows = false;
-            this.transactionTypesDataGridView.AutoGenerateColumns = false;
-            this.transactionTypesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.transactionTypesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.deductionTypeDataGrid.AllowUserToAddRows = false;
+            this.deductionTypeDataGrid.AllowUserToDeleteRows = false;
+            this.deductionTypeDataGrid.AutoGenerateColumns = false;
+            this.deductionTypeDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.deductionTypeDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn3});
-            this.transactionTypesDataGridView.DataSource = this.transactionTypesBindingSource;
-            this.transactionTypesDataGridView.Location = new System.Drawing.Point(12, 172);
-            this.transactionTypesDataGridView.Name = "transactionTypesDataGridView";
-            this.transactionTypesDataGridView.Size = new System.Drawing.Size(370, 220);
-            this.transactionTypesDataGridView.TabIndex = 14;
+            this.deductionTypeDataGrid.DataSource = this.transactionTypesBindingSource;
+            this.deductionTypeDataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.deductionTypeDataGrid.Location = new System.Drawing.Point(12, 172);
+            this.deductionTypeDataGrid.Name = "deductionTypeDataGrid";
+            this.deductionTypeDataGrid.Size = new System.Drawing.Size(370, 220);
+            this.deductionTypeDataGrid.TabIndex = 14;
+            this.deductionTypeDataGrid.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DataGrid_CellParsing);
+            this.deductionTypeDataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGrid_DataError);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -169,8 +172,8 @@
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Status";
             this.dataGridViewTextBoxColumn4.HeaderText = "Estado";
             this.dataGridViewTextBoxColumn4.Items.AddRange(new object[] {
-            "ACTIVO",
-            "INACTIVO"});
+            "Activo",
+            "Inactivo"});
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -178,10 +181,10 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "SalaryDependent";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Dependencia";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Depende de Salario";
             this.dataGridViewTextBoxColumn3.Items.AddRange(new object[] {
-            "NINGUNA",
-            "SALARIAL"});
+            "Si",
+            "No"});
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -194,6 +197,7 @@
             this.button2.TabIndex = 16;
             this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // button1
             // 
@@ -203,6 +207,7 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // pictureBox1
             // 
@@ -221,20 +226,20 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.transactionTypesDataGridView);
-            this.Controls.Add(this.deductionStatus);
-            this.Controls.Add(this.deductionDependency);
-            this.Controls.Add(this.deductionName);
+            this.Controls.Add(this.deductionTypeDataGrid);
+            this.Controls.Add(this.cmbDeductionStatus);
+            this.Controls.Add(this.cmbDeductionSalaryDependent);
+            this.Controls.Add(this.txtDeductionName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DeductionTypeForm";
             this.Text = "Matenimiento de Tipo de Deducciones";
-            this.Load += new System.EventHandler(this.DeductionTypeForm_Load);
+            this.Load += new System.EventHandler(this.StandardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTypesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionTypesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deductionTypeDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -242,9 +247,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox deductionStatus;
-        private System.Windows.Forms.ComboBox deductionDependency;
-        private System.Windows.Forms.TextBox deductionName;
+        private System.Windows.Forms.ComboBox cmbDeductionStatus;
+        private System.Windows.Forms.ComboBox cmbDeductionSalaryDependent;
+        private System.Windows.Forms.TextBox txtDeductionName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -252,13 +257,13 @@
         private System.Windows.Forms.BindingSource transactionTypesBindingSource;
         private _payroll_unapecDataSet1TableAdapters.TransactionTypesTableAdapter transactionTypesTableAdapter;
         private _payroll_unapecDataSet1TableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridView transactionTypesDataGridView;
+        private System.Windows.Forms.DataGridView deductionTypeDataGrid;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
