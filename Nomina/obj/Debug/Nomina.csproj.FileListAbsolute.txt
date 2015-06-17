@@ -1,36 +1,20 @@
-c:\users\r. jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\bin\Debug\Nomina.exe.config
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.csprojResolveAssemblyReference.cache
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.PositionForm.resources
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.Properties.Resources.resources
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.csproj.GenerateResource.Cache
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\bin\Debug\Nomina.exe
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\bin\Debug\Nomina.pdb
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\bin\Debug\EntityFramework.dll
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\bin\Debug\EntityFramework.xml
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.exe
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.pdb
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.DepartmentForm.resources
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\bin\Debug\Nomina.exe.config
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\bin\Debug\Nomina.exe
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\bin\Debug\Nomina.pdb
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\bin\Debug\EntityFramework.dll
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\bin\Debug\EntityFramework.xml
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.csprojResolveAssemblyReference.cache
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.DepartmentForm.resources
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.PositionForm.resources
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.Properties.Resources.resources
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.csproj.GenerateResource.Cache
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.exe
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.pdb
-<<<<<<< HEAD
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.DeductionTypeForm.resources
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.IncomeTypeForm.resources
-C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\obj\Debug\Nomina.Home.resources
-=======
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.DeductionTypeForm.resources
-C:\Users\casa080\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.IncomeTypeForm.resources
->>>>>>> 3232b3d0a5da4723180d8d2f4999cc2e0901b169
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\bin\Debug\Nomina.exe.config
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\bin\Debug\Nomina.exe
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\bin\Debug\Nomina.pdb
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\bin\Debug\EntityFramework.dll
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\bin\Debug\EntityFramework.xml
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.DeductionTypeForm.resources
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.DepartmentForm.resources
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.Home.resources
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.IncomeTypeForm.resources
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.PayrollForm.resources
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.PositionForm.resources
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.Properties.Resources.resources
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.TransactionForm.resources
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.csproj.GenerateResource.Cache
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.exe
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.pdb
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.csprojResolveAssemblyReference.cache
+C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.EmployeeeForm.resources
