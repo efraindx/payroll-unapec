@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AFPCalculator.cs" />
     <Compile Include="DeductionTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,14 +67,14 @@
     <Compile Include="Department.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs">
-      <DependentUpon>PayrollModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DepartmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DepartmentForm.Designer.cs">
       <DependentUpon>DepartmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -87,6 +88,7 @@
     <Compile Include="IncomeTypeForm.Designer.cs">
       <DependentUpon>IncomeTypeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ISRCalculator.cs" />
     <Compile Include="Payroll.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
@@ -127,6 +129,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SFSCalculator.cs" />
     <Compile Include="StandardForm.cs">
       <SubType>Form</SubType>
     </Compile>

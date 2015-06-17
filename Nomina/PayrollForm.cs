@@ -59,9 +59,12 @@ namespace Nomina
             if(3 == column)
             {
                 string payrollName = payrollsDataGridView.Rows[row].Cells[1].Value.ToString();
+                string payrollPeriocity = payrollsDataGridView.Rows[row].Cells[2].Value.ToString();
                 TransactionForm transactionForm = new TransactionForm();
                 transactionForm.payrollName.Text = "Nómina " + payrollName;
                 transactionForm.Text = "Nómina " + payrollName;
+                transactionForm.payrollPeriocity.Text = "Periocidad " + payrollPeriocity;
+                transactionForm.AddAutomaticTransactions();
                 transactionForm.Show();
             }
         }

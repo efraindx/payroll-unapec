@@ -214,10 +214,10 @@
           <Property Name="Cedula" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Salary" Type="Double" Nullable="false" />
-          <Property Name="PayrollId" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PayrollId" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="Department" Relationship="PayrollModel.EmployeeDepartment" FromRole="Employee" ToRole="Department" />
           <NavigationProperty Name="Position" Relationship="PayrollModel.EmployeePosition" FromRole="Employee" ToRole="Position" />
-          <Property Name="Payroll_Id" Type="Int32" Nullable="false" />
+          <Property Name="Payroll_Id" Nullable="false" Type="Int32" />
           <NavigationProperty Name="Payroll" Relationship="PayrollModel.FK_EmployeePayroll" FromRole="Employee" ToRole="Payroll1" />
         </EntityType>
         <EntityType Name="Department">
