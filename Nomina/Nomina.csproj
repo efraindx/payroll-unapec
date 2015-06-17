@@ -76,6 +76,12 @@
     <Compile Include="Employee.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeeForm.Designer.cs">
+      <DependentUpon>EmployeeeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     <EmbeddedResource Include="DepartmentForm.resx">
       <DependentUpon>DepartmentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeeForm.resx">
+      <DependentUpon>EmployeeeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +264,7 @@
       <LastGenOutput>PayrollModel.cs</LastGenOutput>
       <DependentUpon>PayrollModel.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\iconEmployee.png" />
     <None Include="Resources\iconPayroll.png" />
     <None Include="Resources\favicon.ico" />
     <None Include="Resources\%24thisIcon.ico" />

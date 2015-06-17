@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="IsTypeOf(PayrollModel.Employee)">
         <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Payroll_Id" ColumnName="Payroll_Id" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Cedula" ColumnName="Cedula" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -81,6 +82,15 @@
           <ScalarProperty Name="isIncome" ColumnName="isIncome" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="SalaryDependent" ColumnName="SalaryDependent" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payrolls">
+      <EntityTypeMapping TypeName="PayrollModel.Payroll">
+        <MappingFragment StoreEntitySet="Payrolls">
+          <ScalarProperty Name="Periocity" ColumnName="Periocity" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

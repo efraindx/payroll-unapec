@@ -35,17 +35,17 @@
             this.payrollPeriocity = new System.Windows.Forms.ComboBox();
             this.payrollName = new System.Windows.Forms.TextBox();
             this.payrollsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
             this.payrollsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._payroll_unapecDataSet2 = new Nomina._payroll_unapecDataSet2();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.payrollsTableAdapter = new Nomina._payroll_unapecDataSet2TableAdapters.PayrollsTableAdapter();
             this.tableAdapterManager = new Nomina._payroll_unapecDataSet2TableAdapters.TableAdapterManager();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.payrollsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.payrollsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet2)).BeginInit();
@@ -57,18 +57,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Periocidad";
+            this.label2.Text = "Periocidad:";
             // 
             // payrollPeriocity
             // 
@@ -108,42 +108,6 @@
             this.payrollsDataGridView.TabIndex = 5;
             this.payrollsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.payrollsDataGridView_CellClick);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 30;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Periocity";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Periocidad";
-            this.dataGridViewTextBoxColumn3.Items.AddRange(new object[] {
-            "Semanal",
-            "Quincenal",
-            "Mensual"});
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Action
-            // 
-            this.Action.HeaderText = "Accion";
-            this.Action.Name = "Action";
-            this.Action.ReadOnly = true;
-            this.Action.Text = "Correr";
-            this.Action.ToolTipText = "Correr";
-            this.Action.UseColumnTextForButtonValue = true;
-            this.Action.Width = 60;
-            // 
             // payrollsBindingSource
             // 
             this.payrollsBindingSource.DataMember = "Payrolls";
@@ -173,15 +137,6 @@
             this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Nomina.Properties.Resources.iconPayroll;
-            this.pictureBox1.Location = new System.Drawing.Point(220, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(129, 134);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
             // payrollsTableAdapter
             // 
             this.payrollsTableAdapter.ClearBeforeFill = true;
@@ -191,6 +146,51 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.PayrollsTableAdapter = this.payrollsTableAdapter;
             this.tableAdapterManager.UpdateOrder = Nomina._payroll_unapecDataSet2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Nomina.Properties.Resources.iconPayroll;
+            this.pictureBox1.Location = new System.Drawing.Point(220, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(129, 134);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 30;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Periocity";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Periocidad";
+            this.dataGridViewTextBoxColumn3.Items.AddRange(new object[] {
+            "Semanal",
+            "Quincenal",
+            "Mensual"});
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Action
+            // 
+            this.Action.HeaderText = "Acción";
+            this.Action.Name = "Action";
+            this.Action.ReadOnly = true;
+            this.Action.Text = "Correr";
+            this.Action.ToolTipText = "Correr";
+            this.Action.UseColumnTextForButtonValue = true;
+            this.Action.Width = 60;
             // 
             // PayrollForm
             // 
@@ -207,7 +207,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PayrollForm";
-            this.Text = "Mantenimiento de Nominas";
+            this.Text = "Mantenimiento de Nóminas";
             this.Load += new System.EventHandler(this.PayrollForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.payrollsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.payrollsBindingSource)).EndInit();
