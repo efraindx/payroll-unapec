@@ -22,7 +22,7 @@ namespace Nomina
             this.payrollsTableAdapter.Fill(this._payroll_unapecDataSet2.Payrolls);
         }
 
-        public override void SaveNewItem(object sender, EventArgs e)
+        public override void SaveNewItem()
         {
             using (var dbContext = new PayrollDbContext())
             {
@@ -85,6 +85,30 @@ namespace Nomina
         public override bool ValidateForm()
         {
             return ValidateName() && ValidatePeriodicity();
+        }
+
+        public override DataGridView GetDataGrid()
+        {
+            return payrollsDataGridView;
+        }
+
+        public override void DeleteItem(int itemID)
+        {
+            using (var dbContext = new PayrollDbContext())
+            {
+                //delete selected positions
+                var currentPosition = dbContext.Payrolls.Where(p => p.Id == itemID).FirstOrDefault();
+                if (currentPosition != null)
+                {
+                    dbContext.Payrolls.Remove(currentPosition);
+                    dbContext.SaveChanges();
+                }
+            }
+        }
+
+        public override void UpdateItem(int itemID, int rowIndex, int columnIndex, string newValue)
+        {
+
         }
     }
 }

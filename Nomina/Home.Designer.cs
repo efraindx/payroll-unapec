@@ -45,6 +45,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button5.Image = global::Nomina.Properties.Resources.iconEmployee;
             this.button5.Location = new System.Drawing.Point(29, 28);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(145, 145);
@@ -52,6 +53,7 @@
             this.button5.Text = "Empleados";
             this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 

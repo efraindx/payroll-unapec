@@ -59,7 +59,7 @@ namespace Nomina
         private bool ValidateRisk()
         {
             int selectedIndex = cmbRiesgo.SelectedIndex;
-            bool isValid = selectedIndex > 0;
+            bool isValid = selectedIndex >= 0;
 
             if (!isValid)
             {

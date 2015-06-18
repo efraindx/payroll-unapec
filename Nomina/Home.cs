@@ -41,5 +41,10 @@ namespace Nomina
         {
             new PayrollForm().Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            new EmployeeeForm().Show();
+        }
     }
 }

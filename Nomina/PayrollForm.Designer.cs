@@ -124,9 +124,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
-            this.button1.Text = "Guardar";
+            this.button1.Text = "Gua+rdar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.SaveNewItem);
+            this.button1.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // button2
             // 
@@ -135,6 +135,7 @@
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
             this.button2.Text = "Eliminar";
+            this.button2.Click += new System.EventHandler(this.DeleteButton_Click);
             this.button2.UseVisualStyleBackColor = true;
             // 
             // payrollsTableAdapter
@@ -208,7 +209,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PayrollForm";
             this.Text = "Mantenimiento de Nóminas";
-            this.Load += new System.EventHandler(this.PayrollForm_Load);
+            this.Load += new System.EventHandler(this.StandardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.payrollsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.payrollsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet2)).EndInit();

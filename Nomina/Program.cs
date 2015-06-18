@@ -16,7 +16,7 @@ namespace Nomina
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PayrollForm());
+            Application.Run(new Home());
         }
     }
 }
