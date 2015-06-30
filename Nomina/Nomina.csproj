@@ -175,6 +175,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_payroll_unapecDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_payroll_unapecDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_payroll_unapecDataSet3.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DeductionTypeForm.resx">
       <DependentUpon>DeductionTypeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +261,17 @@
     </None>
     <None Include="_payroll_unapecDataSet2.xss">
       <DependentUpon>_payroll_unapecDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_payroll_unapecDataSet3.xsc">
+      <DependentUpon>_payroll_unapecDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_payroll_unapecDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_payroll_unapecDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_payroll_unapecDataSet3.xss">
+      <DependentUpon>_payroll_unapecDataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

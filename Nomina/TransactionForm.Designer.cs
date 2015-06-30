@@ -44,8 +44,12 @@
             this.transactionAmmount = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.transactionDetail = new System.Windows.Forms.ComboBox();
+            this.transactionTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.transactionEmployee = new System.Windows.Forms.ComboBox();
+            this.employeesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this._payroll_unapecDataSet = new Nomina._payroll_unapecDataSet();
+            this.employeesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -53,19 +57,24 @@
             this.cmbQuincena = new System.Windows.Forms.ComboBox();
             this.cmbSemana = new System.Windows.Forms.ComboBox();
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._payroll_unapecDataSet = new Nomina._payroll_unapecDataSet();
             this.employeesTableAdapter = new Nomina._payroll_unapecDataSetTableAdapters.EmployeesTableAdapter();
             this._payroll_unapecDataSet1 = new Nomina._payroll_unapecDataSet1();
-            this.transactionTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.transactionTypesTableAdapter = new Nomina._payroll_unapecDataSet1TableAdapters.TransactionTypesTableAdapter();
-            this.employeesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this._payroll_unapecDataSet3 = new Nomina._payroll_unapecDataSet3();
+            this.payrollunapecDataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.transactionTypesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.transactionTypesTableAdapter1 = new Nomina._payroll_unapecDataSet3TableAdapters.TransactionTypesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.transactionsDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTypesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.payrollunapecDataSet3BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionTypesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // payrollName
@@ -183,7 +192,7 @@
             // 
             // transactionDetail
             // 
-            this.transactionDetail.DataSource = this.transactionTypesBindingSource;
+            this.transactionDetail.DataSource = this.transactionTypesBindingSource1;
             this.transactionDetail.DisplayMember = "Name";
             this.transactionDetail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.transactionDetail.FormattingEnabled = true;
@@ -192,6 +201,10 @@
             this.transactionDetail.Size = new System.Drawing.Size(121, 21);
             this.transactionDetail.TabIndex = 2;
             this.transactionDetail.ValueMember = "Id";
+            // 
+            // transactionTypesBindingSource
+            // 
+            this.transactionTypesBindingSource.DataMember = "TransactionTypes";
             // 
             // label1
             // 
@@ -204,8 +217,7 @@
             // 
             // transactionEmployee
             // 
-            this.transactionEmployee.DataSource = this.employeesBindingSource1;
-            this.transactionEmployee.DisplayMember = "Name";
+            this.transactionEmployee.DisplayMember = "Id";
             this.transactionEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.transactionEmployee.FormattingEnabled = true;
             this.transactionEmployee.Location = new System.Drawing.Point(7, 25);
@@ -213,6 +225,20 @@
             this.transactionEmployee.Size = new System.Drawing.Size(130, 21);
             this.transactionEmployee.TabIndex = 0;
             this.transactionEmployee.ValueMember = "Id";
+            // 
+            // employeesBindingSource2
+            // 
+            this.employeesBindingSource2.DataMember = "Employees";
+            this.employeesBindingSource2.DataSource = this._payroll_unapecDataSet;
+            // 
+            // _payroll_unapecDataSet
+            // 
+            this._payroll_unapecDataSet.DataSetName = "_payroll_unapecDataSet";
+            this._payroll_unapecDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeesBindingSource1
+            // 
+            this.employeesBindingSource1.DataMember = "Employees";
             // 
             // button2
             // 
@@ -284,12 +310,6 @@
             // employeesBindingSource
             // 
             this.employeesBindingSource.DataMember = "Employees";
-            this.employeesBindingSource.DataSource = this._payroll_unapecDataSet;
-            // 
-            // _payroll_unapecDataSet
-            // 
-            this._payroll_unapecDataSet.DataSetName = "_payroll_unapecDataSet";
-            this._payroll_unapecDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // employeesTableAdapter
             // 
@@ -300,19 +320,28 @@
             this._payroll_unapecDataSet1.DataSetName = "_payroll_unapecDataSet1";
             this._payroll_unapecDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // transactionTypesBindingSource
-            // 
-            this.transactionTypesBindingSource.DataMember = "TransactionTypes";
-            this.transactionTypesBindingSource.DataSource = this._payroll_unapecDataSet1;
-            // 
             // transactionTypesTableAdapter
             // 
             this.transactionTypesTableAdapter.ClearBeforeFill = true;
             // 
-            // employeesBindingSource1
+            // _payroll_unapecDataSet3
             // 
-            this.employeesBindingSource1.DataMember = "Employees";
-            this.employeesBindingSource1.DataSource = this._payroll_unapecDataSet;
+            this._payroll_unapecDataSet3.DataSetName = "_payroll_unapecDataSet3";
+            this._payroll_unapecDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // payrollunapecDataSet3BindingSource
+            // 
+            this.payrollunapecDataSet3BindingSource.DataSource = this._payroll_unapecDataSet3;
+            this.payrollunapecDataSet3BindingSource.Position = 0;
+            // 
+            // transactionTypesBindingSource1
+            // 
+            this.transactionTypesBindingSource1.DataMember = "TransactionTypes";
+            this.transactionTypesBindingSource1.DataSource = this.payrollunapecDataSet3BindingSource;
+            // 
+            // transactionTypesTableAdapter1
+            // 
+            this.transactionTypesTableAdapter1.ClearBeforeFill = true;
             // 
             // TransactionForm
             // 
@@ -335,11 +364,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.transactionsDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionTypesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.payrollunapecDataSet3BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionTypesBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,5 +409,10 @@
         private System.Windows.Forms.BindingSource transactionTypesBindingSource;
         private _payroll_unapecDataSet1TableAdapters.TransactionTypesTableAdapter transactionTypesTableAdapter;
         private System.Windows.Forms.BindingSource employeesBindingSource1;
+        private System.Windows.Forms.BindingSource employeesBindingSource2;
+        private _payroll_unapecDataSet3 _payroll_unapecDataSet3;
+        private System.Windows.Forms.BindingSource payrollunapecDataSet3BindingSource;
+        private System.Windows.Forms.BindingSource transactionTypesBindingSource1;
+        private _payroll_unapecDataSet3TableAdapters.TransactionTypesTableAdapter transactionTypesTableAdapter1;
     }
 }

@@ -10,7 +10,7 @@ CREATE DATABASE [payroll-unapec]
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/16/2015 18:50:15
+-- Date Created: 06/30/2015 18:38:40
 -- Generated from EDMX file: C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\PayrollModel.edmx
 -- --------------------------------------------------
 
@@ -28,14 +28,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_DepartmentEmployee]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_DepartmentEmployee];
 GO
-IF OBJECT_ID(N'[dbo].[FK_EmployeeDepartment]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_EmployeeDepartment];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EmployeePayroll]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_EmployeePayroll];
-GO
 IF OBJECT_ID(N'[dbo].[FK_EmployeePosition]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_EmployeePosition];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PayrollEmployee]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_PayrollEmployee];
 GO
 IF OBJECT_ID(N'[dbo].[FK_TransactionEmployee]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Transactions] DROP CONSTRAINT [FK_TransactionEmployee];
@@ -77,11 +74,9 @@ CREATE TABLE [dbo].[Employees] (
     [Cedula] nvarchar(max)  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Salary] float  NOT NULL,
-    [PayrollId] nvarchar(max)  NOT NULL,
-    [Payroll_Id] int  NOT NULL,
+    [Position_Id] int  NOT NULL,
     [Department_Id] int  NOT NULL,
-    [DepartmentEmployee_Employee_Id] int  NOT NULL,
-    [Position_Id] int  NOT NULL
+    [Payroll_Id] int  NOT NULL
 );
 GO
 
@@ -176,49 +171,19 @@ GO
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [Department_Id] in table 'Employees'
-ALTER TABLE [dbo].[Employees]
-ADD CONSTRAINT [FK_EmployeeDepartment]
-    FOREIGN KEY ([Department_Id])
-    REFERENCES [dbo].[Departments]
+-- Creating foreign key on [TransactionType_Id] in table 'Transactions'
+ALTER TABLE [dbo].[Transactions]
+ADD CONSTRAINT [FK_TransactionTransactionType]
+    FOREIGN KEY ([TransactionType_Id])
+    REFERENCES [dbo].[TransactionTypes]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeDepartment'
-CREATE INDEX [IX_FK_EmployeeDepartment]
-ON [dbo].[Employees]
-    ([Department_Id]);
-GO
-
--- Creating foreign key on [DepartmentEmployee_Employee_Id] in table 'Employees'
-ALTER TABLE [dbo].[Employees]
-ADD CONSTRAINT [FK_DepartmentEmployee]
-    FOREIGN KEY ([DepartmentEmployee_Employee_Id])
-    REFERENCES [dbo].[Departments]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_DepartmentEmployee'
-CREATE INDEX [IX_FK_DepartmentEmployee]
-ON [dbo].[Employees]
-    ([DepartmentEmployee_Employee_Id]);
-GO
-
--- Creating foreign key on [Position_Id] in table 'Employees'
-ALTER TABLE [dbo].[Employees]
-ADD CONSTRAINT [FK_EmployeePosition]
-    FOREIGN KEY ([Position_Id])
-    REFERENCES [dbo].[Positions]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_EmployeePosition'
-CREATE INDEX [IX_FK_EmployeePosition]
-ON [dbo].[Employees]
-    ([Position_Id]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_TransactionTransactionType'
+CREATE INDEX [IX_FK_TransactionTransactionType]
+ON [dbo].[Transactions]
+    ([TransactionType_Id]);
 GO
 
 -- Creating foreign key on [Employee_Id] in table 'Transactions'
@@ -236,32 +201,47 @@ ON [dbo].[Transactions]
     ([Employee_Id]);
 GO
 
--- Creating foreign key on [TransactionType_Id] in table 'Transactions'
-ALTER TABLE [dbo].[Transactions]
-ADD CONSTRAINT [FK_TransactionTransactionType]
-    FOREIGN KEY ([TransactionType_Id])
-    REFERENCES [dbo].[TransactionTypes]
+-- Creating foreign key on [Position_Id] in table 'Employees'
+ALTER TABLE [dbo].[Employees]
+ADD CONSTRAINT [FK_EmployeePosition]
+    FOREIGN KEY ([Position_Id])
+    REFERENCES [dbo].[Positions]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_TransactionTransactionType'
-CREATE INDEX [IX_FK_TransactionTransactionType]
-ON [dbo].[Transactions]
-    ([TransactionType_Id]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeePosition'
+CREATE INDEX [IX_FK_EmployeePosition]
+ON [dbo].[Employees]
+    ([Position_Id]);
+GO
+
+-- Creating foreign key on [Department_Id] in table 'Employees'
+ALTER TABLE [dbo].[Employees]
+ADD CONSTRAINT [FK_DepartmentEmployee]
+    FOREIGN KEY ([Department_Id])
+    REFERENCES [dbo].[Departments]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DepartmentEmployee'
+CREATE INDEX [IX_FK_DepartmentEmployee]
+ON [dbo].[Employees]
+    ([Department_Id]);
 GO
 
 -- Creating foreign key on [Payroll_Id] in table 'Employees'
 ALTER TABLE [dbo].[Employees]
-ADD CONSTRAINT [FK_EmployeePayroll]
+ADD CONSTRAINT [FK_PayrollEmployee]
     FOREIGN KEY ([Payroll_Id])
     REFERENCES [dbo].[Payrolls]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_EmployeePayroll'
-CREATE INDEX [IX_FK_EmployeePayroll]
+-- Creating non-clustered index for FOREIGN KEY 'FK_PayrollEmployee'
+CREATE INDEX [IX_FK_PayrollEmployee]
 ON [dbo].[Employees]
     ([Payroll_Id]);
 GO

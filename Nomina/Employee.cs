@@ -14,23 +14,16 @@ namespace Nomina
     
     public partial class Employee
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
-        {
-            this.Transactions = new HashSet<Transaction>();
-        }
-    
         public int Id { get; set; }
         public string Cedula { get; set; }
         public string Name { get; set; }
         public double Salary { get; set; }
-        public string PayrollId { get; set; }
+        public int Position_Id { get; set; }
+        public int Department_Id { get; set; }
         public int Payroll_Id { get; set; }
     
-        public virtual Department Department { get; set; }
         public virtual Position Position { get; set; }
+        public virtual Department Department { get; set; }
         public virtual Payroll Payroll { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }
