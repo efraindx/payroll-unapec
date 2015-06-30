@@ -46,6 +46,12 @@
             this.transactionDetail = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.transactionEmployee = new System.Windows.Forms.ComboBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.cmbMonths = new System.Windows.Forms.ComboBox();
+            this.cmbQuincena = new System.Windows.Forms.ComboBox();
+            this.cmbSemana = new System.Windows.Forms.ComboBox();
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._payroll_unapecDataSet = new Nomina._payroll_unapecDataSet();
             this.employeesTableAdapter = new Nomina._payroll_unapecDataSetTableAdapters.EmployeesTableAdapter();
@@ -189,12 +195,76 @@
             // 
             // transactionEmployee
             // 
+            this.transactionEmployee.DisplayMember = "Cedula";
             this.transactionEmployee.FormattingEnabled = true;
             this.transactionEmployee.Location = new System.Drawing.Point(7, 25);
             this.transactionEmployee.Name = "transactionEmployee";
             this.transactionEmployee.Size = new System.Drawing.Size(130, 21);
             this.transactionEmployee.TabIndex = 0;
             this.transactionEmployee.ValueMember = "Cedula";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(16, 383);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Guardar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(97, 383);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Cancelar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // cmbMonths
+            // 
+            this.cmbMonths.FormattingEnabled = true;
+            this.cmbMonths.Items.AddRange(new object[] {
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"});
+            this.cmbMonths.Location = new System.Drawing.Point(244, 39);
+            this.cmbMonths.Name = "cmbMonths";
+            this.cmbMonths.Size = new System.Drawing.Size(121, 21);
+            this.cmbMonths.TabIndex = 6;
+            // 
+            // cmbQuincena
+            // 
+            this.cmbQuincena.FormattingEnabled = true;
+            this.cmbQuincena.Items.AddRange(new object[] {
+            "1ra Quincena",
+            "2da Quincena"});
+            this.cmbQuincena.Location = new System.Drawing.Point(117, 39);
+            this.cmbQuincena.Name = "cmbQuincena";
+            this.cmbQuincena.Size = new System.Drawing.Size(121, 21);
+            this.cmbQuincena.TabIndex = 7;
+            // 
+            // cmbSemana
+            // 
+            this.cmbSemana.FormattingEnabled = true;
+            this.cmbSemana.Items.AddRange(new object[] {
+            "1ra Semana",
+            "2da Semana",
+            "3ra Semana",
+            "4ta Semana"});
+            this.cmbSemana.Location = new System.Drawing.Point(117, 39);
+            this.cmbSemana.Name = "cmbSemana";
+            this.cmbSemana.Size = new System.Drawing.Size(121, 21);
+            this.cmbSemana.TabIndex = 8;
             // 
             // employeesBindingSource
             // 
@@ -214,7 +284,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 383);
+            this.ClientSize = new System.Drawing.Size(571, 418);
+            this.Controls.Add(this.cmbSemana);
+            this.Controls.Add(this.cmbQuincena);
+            this.Controls.Add(this.cmbMonths);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.payrollPeriocity);
             this.Controls.Add(this.transactionsDataGridView);
@@ -254,5 +329,11 @@
         private _payroll_unapecDataSet _payroll_unapecDataSet;
         private System.Windows.Forms.BindingSource employeesBindingSource;
         private _payroll_unapecDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox cmbMonths;
+        private System.Windows.Forms.ComboBox cmbQuincena;
+        private System.Windows.Forms.ComboBox cmbSemana;
     }
 }

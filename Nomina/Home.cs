@@ -19,32 +19,71 @@ namespace Nomina
 
         private void puestosForm_Click(object sender, EventArgs e)
         {
-            new PositionForm().Show();
+            if(LoginForm.hasAccess("POSITION")) {
+                new PositionForm().Show();
+            } else {
+                MessageBox.Show("No tiene acceso a esta sección, por favor contacte a un administrador.");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new DepartmentForm().Show();
+            if (LoginForm.hasAccess("DEPARTMENT"))
+            {
+                new DepartmentForm().Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene acceso a esta sección, por favor contacte a un administrador.");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new IncomeTypeForm().Show();
+            if (LoginForm.hasAccess("INCOME"))
+            {
+                new IncomeTypeForm().Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene acceso a esta sección, por favor contacte a un administrador.");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new DeductionTypeForm().Show();
+            if (LoginForm.hasAccess("DEDUCTION"))
+            {
+                new DeductionTypeForm().Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene acceso a esta sección, por favor contacte a un administrador.");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            new PayrollForm().Show();
+            if (LoginForm.hasAccess("PAYROLL"))
+            {
+                new PayrollForm().Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene acceso a esta sección, por favor contacte a un administrador.");
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            new EmployeeeForm().Show();
+            if (LoginForm.hasAccess("EMPLOYEE"))
+            {
+                new EmployeeeForm().Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene acceso a esta sección, por favor contacte a un administrador.");
+            }
         }
     }
 }

@@ -95,6 +95,12 @@
       <DependentUpon>IncomeTypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ISRCalculator.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payroll.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IncomeTypeForm.resx">
       <DependentUpon>IncomeTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PayrollForm.resx">
       <DependentUpon>PayrollForm.cs</DependentUpon>

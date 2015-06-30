@@ -43,9 +43,11 @@ namespace Nomina
             
             if(3 == column)
             {
+                int payrollId = int.Parse(payrollsDataGridView.Rows[row].Cells[0].Value.ToString());
                 string payrollName = payrollsDataGridView.Rows[row].Cells[1].Value.ToString();
                 string payrollPeriocity = payrollsDataGridView.Rows[row].Cells[2].Value.ToString();
                 TransactionForm transactionForm = new TransactionForm();
+                transactionForm.payrollId = payrollId;
                 transactionForm.payrollName.Text = "Nómina " + payrollName;
                 transactionForm.Text = "Nómina " + payrollName;
                 transactionForm.payrollPeriocity.Text = "Periocidad " + payrollPeriocity;

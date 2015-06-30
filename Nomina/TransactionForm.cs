@@ -12,6 +12,9 @@ namespace Nomina
 {
     public partial class TransactionForm : Form
     {
+        public int payrollId;
+        private Payroll payroll;
+
         public TransactionForm()
         {
             InitializeComponent();
@@ -19,14 +22,33 @@ namespace Nomina
 
         public void AddAutomaticTransactions()
         {
-            AddTransaction("Rubén Jiménez", "ISR", ISRCalculator.getISR(90000));
-            AddTransaction("Rubén Jiménez", "AFP", AFPCalculator.getAFP(90000));
-            AddTransaction("Rubén Jiménez", "SFS", SFSCalculator.getSFS(90000));
-            AddTransaction("Rubén Jiménez", "Comida", 350);
+            using (var dbContext = new PayrollDbContext())
+            {
+                payroll = dbContext.Payrolls.Where(p => p.Id == payrollId).FirstOrDefault();
+                dbContext.Employees.Where(e => e.Payroll_Id == payrollId).ToList().ForEach(e => {
+                    AddTransaction(e.Name, "ISR", ISRCalculator.getISR(e.Salary));
+                    AddTransaction(e.Name, "AFP", AFPCalculator.getAFP(e.Salary));
+                    AddTransaction(e.Name, "SFS", SFSCalculator.getSFS(e.Salary));
+                });
+            }
 
-            AddTransaction("Joel Cuevas", "ISR", ISRCalculator.getISR(65000));
-            AddTransaction("Joel Cuevas", "AFP", AFPCalculator.getAFP(65000));
-            AddTransaction("Joel Cuevas", "SFS", SFSCalculator.getSFS(65000));
+            if(payroll.Periocity == "Semanal")
+            {
+                cmbQuincena.Hide();
+                cmbSemana.Show();
+            }
+
+            if (payroll.Periocity == "Quincenal")
+            {
+                cmbQuincena.Show();
+                cmbSemana.Hide();
+            }
+
+            if (payroll.Periocity == "Mensual")
+            {
+                cmbQuincena.Hide();
+                cmbSemana.Hide();
+            }
         }
 
         private void AddTransaction(string a, string b, double c)
