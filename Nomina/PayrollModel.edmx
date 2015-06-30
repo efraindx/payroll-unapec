@@ -53,6 +53,7 @@
           <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
           <Property Name="TransactionType_Id" Type="int" Nullable="false" />
           <Property Name="Employee_Id" Type="int" Nullable="false" />
+          <Property Name="Group" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="TransactionTypes">
           <Key>
@@ -229,6 +230,7 @@
           <NavigationProperty Name="TransactionType" Relationship="PayrollModel.FK_TransactionTransactionType" FromRole="Transaction" ToRole="TransactionType" />
           <NavigationProperty Name="Employee" Relationship="PayrollModel.FK_TransactionEmployee" FromRole="Transaction" ToRole="Employee" />
           <Property Name="Employee_Id" Type="Int32" Nullable="false" />
+          <Property Name="Group" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="TransactionType">
           <Key>
@@ -350,7 +352,8 @@
     <EntitySetMapping Name="Transactions">
       <EntityTypeMapping TypeName="IsTypeOf(PayrollModel.Transaction)">
         <MappingFragment StoreEntitySet="Transactions">
-          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
                 <ScalarProperty Name="TransactionType_Id" ColumnName="TransactionType_Id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Date" ColumnName="Date" />

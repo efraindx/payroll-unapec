@@ -10,7 +10,7 @@ CREATE DATABASE [payroll-unapec]
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/30/2015 18:38:40
+-- Date Created: 06/30/2015 19:30:44
 -- Generated from EDMX file: C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\PayrollModel.edmx
 -- --------------------------------------------------
 
@@ -105,7 +105,8 @@ CREATE TABLE [dbo].[Transactions] (
     [Amount] float  NOT NULL,
     [Status] nvarchar(max)  NOT NULL,
     [TransactionType_Id] int  NOT NULL,
-    [Employee_Id] int  NOT NULL
+    [Employee_Id] int  NOT NULL,
+    [Group] nvarchar(max)  NOT NULL
 );
 GO
 

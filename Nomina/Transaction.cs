@@ -20,6 +20,7 @@ namespace Nomina
         public string Status { get; set; }
         public int TransactionType_Id { get; set; }
         public int Employee_Id { get; set; }
+        public string Group { get; set; }
     
         public virtual TransactionType TransactionType { get; set; }
         public virtual Employee Employee { get; set; }
