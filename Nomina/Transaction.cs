@@ -19,8 +19,9 @@ namespace Nomina
         public double Amount { get; set; }
         public string Status { get; set; }
         public int TransactionType_Id { get; set; }
+        public int Employee_Id { get; set; }
     
-        public virtual Employee Employee { get; set; }
         public virtual TransactionType TransactionType { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

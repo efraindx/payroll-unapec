@@ -32,16 +32,27 @@ namespace Nomina
                 });
             }
 
+            for(int i=0; i< 100; ++i)
+            {
+                AddTransaction(i.ToString(), "ISR", ISRCalculator.getISR(i));
+                AddTransaction(i.ToString(), "AFP", AFPCalculator.getAFP(i));
+                AddTransaction(i.ToString(), "SFS", SFSCalculator.getSFS(i));
+            }
+
+            cmbMonths.SelectedIndex = System.DateTime.Now.Month-1;
+
             if(payroll.Periocity == "Semanal")
             {
                 cmbQuincena.Hide();
                 cmbSemana.Show();
+                cmbSemana.SelectedIndex = 0;
             }
 
             if (payroll.Periocity == "Quincenal")
             {
                 cmbQuincena.Show();
                 cmbSemana.Hide();
+                cmbQuincena.SelectedIndex = 0;
             }
 
             if (payroll.Periocity == "Mensual")
@@ -68,9 +79,31 @@ namespace Nomina
 
         private void TransactionForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_payroll_unapecDataSet1.TransactionTypes' table. You can move, or remove it, as needed.
+            this.transactionTypesTableAdapter.Fill(this._payroll_unapecDataSet1.TransactionTypes);
             // TODO: This line of code loads data into the '_payroll_unapecDataSet.Employees' table. You can move, or remove it, as needed.
             this.employeesTableAdapter.Fill(this._payroll_unapecDataSet.Employees);
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int rows = transactionsDataGridView.Rows.Count;
+            using (var dbContext = new PayrollDbContext())
+            {
+                for (int i = 0; i < rows; ++i)
+                {
+                    Transaction t = new Transaction();
+                    t.TransactionType_Id = 2;
+                    t.Employee_Id = 3;
+                    t.Date = System.DateTime.Now;
+                    t.Amount = double.Parse(transactionsDataGridView.Rows[i].Cells[3].Value.ToString());
+                    t.Status = transactionsDataGridView.Rows[i].Cells[4].Value.ToString();
+                    dbContext.Transactions.Add(t);
+                    dbContext.SaveChanges();
+                }
+            }
+                
         }
     }
 }

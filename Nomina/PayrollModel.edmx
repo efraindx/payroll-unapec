@@ -191,10 +191,6 @@
             <End Role="Position" EntitySet="Positions" />
           </AssociationSet>
           <EntitySet Name="Transactions" EntityType="PayrollModel.Transaction" />
-          <AssociationSet Name="TransactionEmployee" Association="PayrollModel.TransactionEmployee">
-            <End Role="Transaction" EntitySet="Transactions" />
-            <End Role="Employee" EntitySet="Employees" />
-          </AssociationSet>
           <EntitySet Name="TransactionTypes" EntityType="PayrollModel.TransactionType" />
           <AssociationSet Name="FK_TransactionTransactionType" Association="PayrollModel.FK_TransactionTransactionType">
             <End Role="TransactionType" EntitySet="TransactionTypes" />
@@ -204,6 +200,10 @@
           <AssociationSet Name="FK_EmployeePayroll" Association="PayrollModel.FK_EmployeePayroll">
             <End Role="Payroll1" EntitySet="Payrolls" />
             <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionEmployee" Association="PayrollModel.FK_TransactionEmployee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Transaction" EntitySet="Transactions" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Employee">
@@ -219,6 +219,7 @@
           <NavigationProperty Name="Position" Relationship="PayrollModel.EmployeePosition" FromRole="Employee" ToRole="Position" />
           <Property Name="Payroll_Id" Nullable="false" Type="Int32" />
           <NavigationProperty Name="Payroll" Relationship="PayrollModel.FK_EmployeePayroll" FromRole="Employee" ToRole="Payroll1" />
+          <NavigationProperty Name="Transactions" Relationship="PayrollModel.FK_TransactionEmployee" FromRole="Employee" ToRole="Transaction" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -256,17 +257,14 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Employee" Relationship="PayrollModel.TransactionEmployee" FromRole="Transaction" ToRole="Employee" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Amount" Type="Double" Nullable="false" />
           <Property Name="Status" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="TransactionType_Id" Type="Int32" Nullable="false" />
+          <Property Name="TransactionType_Id" Nullable="false" Type="Int32" />
           <NavigationProperty Name="TransactionType" Relationship="PayrollModel.FK_TransactionTransactionType" FromRole="Transaction" ToRole="TransactionType" />
+          <NavigationProperty Name="Employee" Relationship="PayrollModel.FK_TransactionEmployee" FromRole="Transaction" ToRole="Employee" />
+          <Property Name="Employee_Id" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="TransactionEmployee">
-          <End Type="PayrollModel.Transaction" Role="Transaction" Multiplicity="1" />
-          <End Type="PayrollModel.Employee" Role="Employee" Multiplicity="1" />
-        </Association>
         <EntityType Name="TransactionType">
           <Key>
             <PropertyRef Name="Id" />
@@ -307,6 +305,18 @@
             </Principal>
             <Dependent Role="Employee">
               <PropertyRef Name="Payroll_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionEmployee">
+          <End Type="PayrollModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="PayrollModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Employee_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -351,7 +361,8 @@
     <EntitySetMapping Name="Transactions">
       <EntityTypeMapping TypeName="IsTypeOf(PayrollModel.Transaction)">
         <MappingFragment StoreEntitySet="Transactions">
-          <ScalarProperty Name="TransactionType_Id" ColumnName="TransactionType_Id" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+                <ScalarProperty Name="TransactionType_Id" ColumnName="TransactionType_Id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -380,14 +391,6 @@
         <ScalarProperty Name="Id" ColumnName="Position_Id" />
       </EndProperty>
       <EndProperty Name="Employee">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TransactionEmployee" TypeName="PayrollModel.TransactionEmployee" StoreEntitySet="Transactions">
-      <EndProperty Name="Employee">
-        <ScalarProperty Name="Id" ColumnName="Employee_Id" />
-      </EndProperty>
-      <EndProperty Name="Transaction">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>

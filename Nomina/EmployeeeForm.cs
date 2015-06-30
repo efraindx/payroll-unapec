@@ -47,7 +47,7 @@ namespace Nomina
                 employee.Name = employeeName.Text;
                 //employee.Position_Id = employeePosition.Text;
                 //employee.Department_Id = employeeDepartment.Text;
-                employee.Payroll_Id = int.Parse(employeePayroll.Text);
+                employee.Payroll_Id = int.Parse(employeePayroll.SelectedValue.ToString());
                 employee.Salary = Double.Parse(employeeSalary.Text);
 
                 dbContext.Employees.Add(employee);

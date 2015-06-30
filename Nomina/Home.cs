@@ -85,5 +85,10 @@ namespace Nomina
                 MessageBox.Show("No tiene acceso a esta sección, por favor contacte a un administrador.");
             }
         }
+
+        private void Home_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

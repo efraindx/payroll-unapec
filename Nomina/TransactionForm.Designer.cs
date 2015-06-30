@@ -55,10 +55,17 @@
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._payroll_unapecDataSet = new Nomina._payroll_unapecDataSet();
             this.employeesTableAdapter = new Nomina._payroll_unapecDataSetTableAdapters.EmployeesTableAdapter();
+            this._payroll_unapecDataSet1 = new Nomina._payroll_unapecDataSet1();
+            this.transactionTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.transactionTypesTableAdapter = new Nomina._payroll_unapecDataSet1TableAdapters.TransactionTypesTableAdapter();
+            this.employeesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.transactionsDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionTypesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // payrollName
@@ -176,13 +183,15 @@
             // 
             // transactionDetail
             // 
+            this.transactionDetail.DataSource = this.transactionTypesBindingSource;
+            this.transactionDetail.DisplayMember = "Name";
+            this.transactionDetail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.transactionDetail.FormattingEnabled = true;
-            this.transactionDetail.Items.AddRange(new object[] {
-            "Prueba"});
             this.transactionDetail.Location = new System.Drawing.Point(158, 25);
             this.transactionDetail.Name = "transactionDetail";
             this.transactionDetail.Size = new System.Drawing.Size(121, 21);
             this.transactionDetail.TabIndex = 2;
+            this.transactionDetail.ValueMember = "Id";
             // 
             // label1
             // 
@@ -195,13 +204,15 @@
             // 
             // transactionEmployee
             // 
-            this.transactionEmployee.DisplayMember = "Cedula";
+            this.transactionEmployee.DataSource = this.employeesBindingSource1;
+            this.transactionEmployee.DisplayMember = "Name";
+            this.transactionEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.transactionEmployee.FormattingEnabled = true;
             this.transactionEmployee.Location = new System.Drawing.Point(7, 25);
             this.transactionEmployee.Name = "transactionEmployee";
             this.transactionEmployee.Size = new System.Drawing.Size(130, 21);
             this.transactionEmployee.TabIndex = 0;
-            this.transactionEmployee.ValueMember = "Cedula";
+            this.transactionEmployee.ValueMember = "Id";
             // 
             // button2
             // 
@@ -211,6 +222,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Guardar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -223,6 +235,7 @@
             // 
             // cmbMonths
             // 
+            this.cmbMonths.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMonths.FormattingEnabled = true;
             this.cmbMonths.Items.AddRange(new object[] {
             "Enero",
@@ -237,31 +250,33 @@
             "Octubre",
             "Noviembre",
             "Diciembre"});
-            this.cmbMonths.Location = new System.Drawing.Point(244, 39);
+            this.cmbMonths.Location = new System.Drawing.Point(132, 39);
             this.cmbMonths.Name = "cmbMonths";
             this.cmbMonths.Size = new System.Drawing.Size(121, 21);
             this.cmbMonths.TabIndex = 6;
             // 
             // cmbQuincena
             // 
+            this.cmbQuincena.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbQuincena.FormattingEnabled = true;
             this.cmbQuincena.Items.AddRange(new object[] {
             "1ra Quincena",
             "2da Quincena"});
-            this.cmbQuincena.Location = new System.Drawing.Point(117, 39);
+            this.cmbQuincena.Location = new System.Drawing.Point(132, 12);
             this.cmbQuincena.Name = "cmbQuincena";
             this.cmbQuincena.Size = new System.Drawing.Size(121, 21);
             this.cmbQuincena.TabIndex = 7;
             // 
             // cmbSemana
             // 
+            this.cmbSemana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSemana.FormattingEnabled = true;
             this.cmbSemana.Items.AddRange(new object[] {
             "1ra Semana",
             "2da Semana",
             "3ra Semana",
             "4ta Semana"});
-            this.cmbSemana.Location = new System.Drawing.Point(117, 39);
+            this.cmbSemana.Location = new System.Drawing.Point(132, 12);
             this.cmbSemana.Name = "cmbSemana";
             this.cmbSemana.Size = new System.Drawing.Size(121, 21);
             this.cmbSemana.TabIndex = 8;
@@ -279,6 +294,25 @@
             // employeesTableAdapter
             // 
             this.employeesTableAdapter.ClearBeforeFill = true;
+            // 
+            // _payroll_unapecDataSet1
+            // 
+            this._payroll_unapecDataSet1.DataSetName = "_payroll_unapecDataSet1";
+            this._payroll_unapecDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // transactionTypesBindingSource
+            // 
+            this.transactionTypesBindingSource.DataMember = "TransactionTypes";
+            this.transactionTypesBindingSource.DataSource = this._payroll_unapecDataSet1;
+            // 
+            // transactionTypesTableAdapter
+            // 
+            this.transactionTypesTableAdapter.ClearBeforeFill = true;
+            // 
+            // employeesBindingSource1
+            // 
+            this.employeesBindingSource1.DataMember = "Employees";
+            this.employeesBindingSource1.DataSource = this._payroll_unapecDataSet;
             // 
             // TransactionForm
             // 
@@ -303,6 +337,9 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionTypesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,5 +372,9 @@
         private System.Windows.Forms.ComboBox cmbMonths;
         private System.Windows.Forms.ComboBox cmbQuincena;
         private System.Windows.Forms.ComboBox cmbSemana;
+        private _payroll_unapecDataSet1 _payroll_unapecDataSet1;
+        private System.Windows.Forms.BindingSource transactionTypesBindingSource;
+        private _payroll_unapecDataSet1TableAdapters.TransactionTypesTableAdapter transactionTypesTableAdapter;
+        private System.Windows.Forms.BindingSource employeesBindingSource1;
     }
 }
