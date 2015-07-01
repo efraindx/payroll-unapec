@@ -148,6 +148,7 @@
     <Compile Include="Transaction.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TransactionCalculator.cs" />
     <Compile Include="TransactionForm.cs">
       <SubType>Form</SubType>
     </Compile>

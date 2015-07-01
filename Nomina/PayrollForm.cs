@@ -52,7 +52,6 @@ namespace Nomina
                 transactionForm.Text = "Nómina " + payrollName;
                 transactionForm.payrollPeriocity.Text = "Periocidad " + payrollPeriocity;
                 transactionForm.AddAutomaticTransactions();
-                transactionForm.Show();
             }
         }
 

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Nomina
 {
-    class AFPCalculator
+    class AFPCalculator : TransactionCalculator
     {
         private const double FACTOR = 0.0287;
 
-        public static double getAFP(double salary)
+        public double calculate(double salary)
         {
             return salary * FACTOR;
         }

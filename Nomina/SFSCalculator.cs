@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Nomina
 {
-    class SFSCalculator
+    class SFSCalculator : TransactionCalculator
     {
         private const double FACTOR = 0.0304;
 
-        public static double getSFS(double salary)
+        public double calculate(double salary)
         {
             return salary * FACTOR;
         }

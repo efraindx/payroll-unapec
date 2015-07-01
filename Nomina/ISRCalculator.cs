@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nomina
 {
-    class ISRCalculator
+    class ISRCalculator : TransactionCalculator
     {
         private const double FIRST_LIMIT = 399923.01;
         private const double SECOND_LIMIT = 599884.01;
@@ -19,7 +19,7 @@ namespace Nomina
         private const double SECOND_FACTOR = 0.2;
         private const double THIRD_FACTOR = 0.25;
 
-        public static double getISR(double salary)
+        public double calculate(double salary)
         {
             double ISR = 0;
             double baseSalary = salary * 12;
