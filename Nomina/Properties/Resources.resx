@@ -118,11 +118,32 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="iconPuesto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconPuesto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconDeductionType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconDeductionType.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconUsers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconUsers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo-unapec1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo-unapec.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo-unapec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo-unapec.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconEmployee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconEmployee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconEmployee2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconEmployee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="iconDepartment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconDepartment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconPayroll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconPayroll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconEmployee3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconEmployee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconEmployee1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconEmployee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,22 +151,19 @@
   <data name="iconIncomeType" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconIncomeType.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconPuesto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconPuesto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconPayroll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconPayroll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="favicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\favicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconEmployee2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconEmployee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fondo-blur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo-blur.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconDeductionType" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconDeductionType.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo-unapec-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo-unapec-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconEmployee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconEmployee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconEmployee3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconEmployee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconAccesses" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconAccesses.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

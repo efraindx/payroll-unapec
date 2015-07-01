@@ -7,10 +7,11 @@
 -- --------------------------------------------------
 CREATE DATABASE [payroll-unapec]
 
+
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/30/2015 19:30:44
+-- Date Created: 07/01/2015 12:15:05
 -- Generated from EDMX file: C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\PayrollModel.edmx
 -- --------------------------------------------------
 
@@ -128,6 +129,29 @@ CREATE TABLE [dbo].[Payrolls] (
 );
 GO
 
+-- Creating table 'Users'
+CREATE TABLE [dbo].[Users] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [name] nvarchar(max)  NOT NULL,
+    [password] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'Roles'
+CREATE TABLE [dbo].[Roles] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'UserRole'
+CREATE TABLE [dbo].[UserRole] (
+    [UserRole_Role_Id] int  NOT NULL,
+    [Roles_Id] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -166,6 +190,24 @@ GO
 ALTER TABLE [dbo].[Payrolls]
 ADD CONSTRAINT [PK_Payrolls]
     PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [PK_Users]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Roles'
+ALTER TABLE [dbo].[Roles]
+ADD CONSTRAINT [PK_Roles]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [UserRole_Role_Id], [Roles_Id] in table 'UserRole'
+ALTER TABLE [dbo].[UserRole]
+ADD CONSTRAINT [PK_UserRole]
+    PRIMARY KEY CLUSTERED ([UserRole_Role_Id], [Roles_Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -247,6 +289,44 @@ ON [dbo].[Employees]
     ([Payroll_Id]);
 GO
 
+-- Creating foreign key on [UserRole_Role_Id] in table 'UserRole'
+ALTER TABLE [dbo].[UserRole]
+ADD CONSTRAINT [FK_UserRole_User]
+    FOREIGN KEY ([UserRole_Role_Id])
+    REFERENCES [dbo].[Users]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Roles_Id] in table 'UserRole'
+ALTER TABLE [dbo].[UserRole]
+ADD CONSTRAINT [FK_UserRole_Role]
+    FOREIGN KEY ([Roles_Id])
+    REFERENCES [dbo].[Roles]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserRole_Role'
+CREATE INDEX [IX_FK_UserRole_Role]
+ON [dbo].[UserRole]
+    ([Roles_Id]);
+GO
+
+INSERT INTO [dbo].[Roles] VALUES ('ADMIN', 'Acceso a administracion')
+INSERT INTO [dbo].[Roles] VALUES ('EMPLOYEE', 'Acceso a empleados')
+INSERT INTO [dbo].[Roles] VALUES ('POSITION', 'Acceso a puestos')
+INSERT INTO [dbo].[Roles] VALUES ('DEPARTMENT', 'Acceso a departamentos')
+INSERT INTO [dbo].[Roles] VALUES ('INCOME', 'Acceso a ingresos')
+INSERT INTO [dbo].[Roles] VALUES ('DEDUCTION', 'Acceso a deducciones')
+INSERT INTO [dbo].[Roles] VALUES ('PAYROLL', 'Acceso a nominas')
+GO
+
+INSERT INTO [dbo].[Users] VALUES ('admin', 'admin')
+GO
+
+INSERT INTO [dbo].[UserRole] VALUES (1,1)
+GO
 -- --------------------------------------------------
 -- Script has ended
 -- --------------------------------------------------

@@ -107,6 +107,8 @@
             this.payrollsDataGridView.Size = new System.Drawing.Size(333, 137);
             this.payrollsDataGridView.TabIndex = 5;
             this.payrollsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.payrollsDataGridView_CellClick);
+            this.payrollsDataGridView.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DataGrid_CellParsing);
+            this.payrollsDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGrid_DataError);
             // 
             // payrollsBindingSource
             // 
