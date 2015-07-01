@@ -57,6 +57,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccessesForm.Designer.cs">
+      <DependentUpon>AccessesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AFPCalculator.cs" />
     <Compile Include="DeductionTypeForm.cs">
       <SubType>Form</SubType>
@@ -141,6 +153,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>PayrollModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RolesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RolesForm.Designer.cs">
+      <DependentUpon>RolesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SFSCalculator.cs" />
     <Compile Include="StandardForm.cs">
       <SubType>Form</SubType>
@@ -157,6 +178,15 @@
     </Compile>
     <Compile Include="TransactionType.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>PayrollModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersForm.Designer.cs">
+      <DependentUpon>UsersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="_payroll_unapecDataSet.cs">
       <DependentUpon>_payroll_unapecDataSet.xsd</DependentUpon>
@@ -181,6 +211,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_payroll_unapecDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_payroll_unapecDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_payroll_unapecDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_payroll_unapecDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_payroll_unapecDataSet5.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AccessesForm.resx">
+      <DependentUpon>AccessesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeductionTypeForm.resx">
       <DependentUpon>DeductionTypeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,8 +256,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RolesForm.resx">
+      <DependentUpon>RolesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersForm.resx">
+      <DependentUpon>UsersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="PayrollModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -274,6 +326,28 @@
     <None Include="_payroll_unapecDataSet3.xss">
       <DependentUpon>_payroll_unapecDataSet3.xsd</DependentUpon>
     </None>
+    <None Include="_payroll_unapecDataSet4.xsc">
+      <DependentUpon>_payroll_unapecDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_payroll_unapecDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_payroll_unapecDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_payroll_unapecDataSet4.xss">
+      <DependentUpon>_payroll_unapecDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_payroll_unapecDataSet5.xsc">
+      <DependentUpon>_payroll_unapecDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="_payroll_unapecDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_payroll_unapecDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_payroll_unapecDataSet5.xss">
+      <DependentUpon>_payroll_unapecDataSet5.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -290,6 +364,8 @@
       <LastGenOutput>PayrollModel.cs</LastGenOutput>
       <DependentUpon>PayrollModel.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\iconAccesses.png" />
+    <None Include="Resources\iconUsers.png" />
     <None Include="Resources\logo-unapec-2.png" />
     <None Include="Resources\logo-unapec.png" />
     <None Include="Resources\logo-unapec.jpg" />

@@ -43,6 +43,14 @@
           <Property Name="MinSalary" Type="float" Nullable="false" />
           <Property Name="MaxSalary" Type="float" Nullable="false" />
         </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="Transactions">
           <Key>
             <PropertyRef Name="Id" />
@@ -64,6 +72,22 @@
           <Property Name="SalaryDependent" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
           <Property Name="isIncome" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRole_Role_Id" />
+            <PropertyRef Name="Roles_Id" />
+          </Key>
+          <Property Name="UserRole_Role_Id" Type="int" Nullable="false" />
+          <Property Name="Roles_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <Association Name="FK_DepartmentEmployee">
           <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
@@ -125,13 +149,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserRole_Role">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="Roles_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_User">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserRole_Role_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Model1StoreContainer">
           <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payrolls" EntityType="Self.Payrolls" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionTypes" EntityType="Self.TransactionTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DepartmentEmployee" Association="Self.FK_DepartmentEmployee">
             <End Role="Departments" EntitySet="Departments" />
             <End Role="Employees" EntitySet="Employees" />
@@ -151,6 +202,14 @@
           <AssociationSet Name="FK_TransactionTransactionType" Association="Self.FK_TransactionTransactionType">
             <End Role="TransactionTypes" EntitySet="TransactionTypes" />
             <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_Role" Association="Self.FK_UserRole_Role">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserRole" EntitySet="UserRole" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -183,6 +242,12 @@
           <AssociationSet Name="PayrollEmployee" Association="PayrollModel.PayrollEmployee">
             <End Role="Payroll" EntitySet="Payrolls" />
             <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <EntitySet Name="Roles" EntityType="PayrollModel.Role" />
+          <EntitySet Name="Users" EntityType="PayrollModel.User" />
+          <AssociationSet Name="UserRole1" Association="PayrollModel.UserRole1">
+            <End Role="Role1" EntitySet="Roles" />
+            <End Role="User1" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Employee">
@@ -230,7 +295,7 @@
           <NavigationProperty Name="TransactionType" Relationship="PayrollModel.FK_TransactionTransactionType" FromRole="Transaction" ToRole="TransactionType" />
           <NavigationProperty Name="Employee" Relationship="PayrollModel.FK_TransactionEmployee" FromRole="Transaction" ToRole="Employee" />
           <Property Name="Employee_Id" Type="Int32" Nullable="false" />
-          <Property Name="Group" Type="String" Nullable="false" />
+          <Property Name="Group" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="TransactionType">
           <Key>
@@ -310,6 +375,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="PayrollModel.UserRole1" FromRole="Role1" ToRole="User1" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Roles" Relationship="PayrollModel.UserRole1" FromRole="User1" ToRole="Role1" />
+        </EntityType>
+        <Association Name="UserRole1">
+          <End Type="PayrollModel.Role" Role="Role1" Multiplicity="*" />
+          <End Type="PayrollModel.User" Role="User1" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -382,6 +469,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="PayrollModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="PayrollModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserRole1" TypeName="PayrollModel.UserRole1" StoreEntitySet="UserRole">
+            <EndProperty Name="User1">
+              <ScalarProperty Name="Id" ColumnName="UserRole_Role_Id" />
+            </EndProperty>
+            <EndProperty Name="Role1">
+              <ScalarProperty Name="Id" ColumnName="Roles_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

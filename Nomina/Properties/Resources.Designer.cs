@@ -83,6 +83,16 @@ namespace Nomina.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconAccesses {
+            get {
+                object obj = ResourceManager.GetObject("iconAccesses", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconDeductionType {
             get {
                 object obj = ResourceManager.GetObject("iconDeductionType", resourceCulture);
@@ -166,6 +176,16 @@ namespace Nomina.Properties {
         internal static System.Drawing.Bitmap iconPuesto {
             get {
                 object obj = ResourceManager.GetObject("iconPuesto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconUsers {
+            get {
+                object obj = ResourceManager.GetObject("iconUsers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

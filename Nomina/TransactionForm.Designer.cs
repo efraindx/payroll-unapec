@@ -89,7 +89,6 @@
             // transactionsDataGridView
             // 
             this.transactionsDataGridView.AllowUserToAddRows = false;
-            this.transactionsDataGridView.AllowUserToDeleteRows = false;
             this.transactionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.transactionsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Employee,
