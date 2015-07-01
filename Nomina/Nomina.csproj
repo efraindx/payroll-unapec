@@ -290,6 +290,10 @@
       <LastGenOutput>PayrollModel.cs</LastGenOutput>
       <DependentUpon>PayrollModel.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\logo-unapec-2.png" />
+    <None Include="Resources\logo-unapec.png" />
+    <None Include="Resources\logo-unapec.jpg" />
+    <None Include="Resources\fondo-blur.jpg" />
     <None Include="Resources\iconEmployee.png" />
     <None Include="Resources\iconPayroll.png" />
     <None Include="Resources\favicon.ico" />
