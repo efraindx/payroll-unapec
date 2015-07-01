@@ -109,7 +109,22 @@ namespace Nomina
 
         public override void UpdateItem(int itemID, int rowIndex, int columnIndex, string newValue)
         {
+            using (var dbContext = new PayrollDbContext())
+            {
+                Payroll payroll = dbContext.Payrolls.Find(itemID);
+                switch (columnIndex)
+                {
+                    case 1:
+                        payroll.Name = newValue;
+                        dbContext.SaveChanges();
+                        break;
 
+                    case 2:
+                        payroll.Periocity = newValue;
+                        dbContext.SaveChanges();
+                        break;
+                }
+            }
         }
     }
 }
