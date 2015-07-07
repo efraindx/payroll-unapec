@@ -103,9 +103,10 @@ namespace Nomina
 
                         cmbMonths.SelectedIndex = System.DateTime.Now.Month - 1;
 
+                        transactionYear.Items.Add(System.DateTime.Now.Year - 1);
                         transactionYear.Items.Add(System.DateTime.Now.Year);
                         transactionYear.Items.Add(System.DateTime.Now.Year + 1);
-                        transactionYear.SelectedIndex = 0;
+                        transactionYear.SelectedIndex = 1;
                     } else
                     {
                         MessageBox.Show("Debe exister un Tipo de Ingreso llamado 'Salario', por favor agreguelo antes de continuar.");

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,37 +37,45 @@
             this.employeeCedula = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.employeeDepartment = new System.Windows.Forms.ComboBox();
-            this.departmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._payroll_unapecDataSet = new Nomina._payroll_unapecDataSet();
             this.label4 = new System.Windows.Forms.Label();
             this.employeePosition = new System.Windows.Forms.ComboBox();
-            this.positionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.employeeSalary = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.employeePayroll = new System.Windows.Forms.ComboBox();
-            this.payrollsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._payroll_unapecDataSet2 = new Nomina._payroll_unapecDataSet2();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.departmentsTableAdapter = new Nomina._payroll_unapecDataSetTableAdapters.DepartmentsTableAdapter();
-            this.positionsTableAdapter = new Nomina._payroll_unapecDataSetTableAdapters.PositionsTableAdapter();
-            this.payrollsTableAdapter = new Nomina._payroll_unapecDataSet2TableAdapters.PayrollsTableAdapter();
+            this.all = new Nomina.all();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeesTableAdapter = new Nomina.allTableAdapters.EmployeesTableAdapter();
+            this.tableAdapterManager = new Nomina.allTableAdapters.TableAdapterManager();
+            this.departmentsTableAdapter = new Nomina.allTableAdapters.DepartmentsTableAdapter();
+            this.payrollsTableAdapter = new Nomina.allTableAdapters.PayrollsTableAdapter();
+            this.positionsTableAdapter = new Nomina.allTableAdapters.PositionsTableAdapter();
+            this.employeesDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.positionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.departmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.payrollsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.departmentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.positionsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.payrollsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.all)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.payrollsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.payrollsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -86,7 +95,6 @@
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // employeeName
             // 
@@ -123,7 +131,7 @@
             // 
             // employeeDepartment
             // 
-            this.employeeDepartment.DataSource = this.departmentsBindingSource;
+            this.employeeDepartment.DataSource = this.departmentsBindingSource1;
             this.employeeDepartment.DisplayMember = "Name";
             this.employeeDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.employeeDepartment.FormattingEnabled = true;
@@ -133,20 +141,10 @@
             this.employeeDepartment.TabIndex = 6;
             this.employeeDepartment.ValueMember = "Id";
             // 
-            // departmentsBindingSource
-            // 
-            this.departmentsBindingSource.DataMember = "Departments";
-            this.departmentsBindingSource.DataSource = this._payroll_unapecDataSet;
-            // 
-            // _payroll_unapecDataSet
-            // 
-            this._payroll_unapecDataSet.DataSetName = "_payroll_unapecDataSet";
-            this._payroll_unapecDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(239, 44);
+            this.label4.Location = new System.Drawing.Point(238, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 7;
@@ -154,7 +152,7 @@
             // 
             // employeePosition
             // 
-            this.employeePosition.DataSource = this.positionsBindingSource;
+            this.employeePosition.DataSource = this.positionsBindingSource1;
             this.employeePosition.DisplayMember = "Name";
             this.employeePosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.employeePosition.FormattingEnabled = true;
@@ -163,11 +161,6 @@
             this.employeePosition.Size = new System.Drawing.Size(121, 21);
             this.employeePosition.TabIndex = 8;
             this.employeePosition.ValueMember = "Id";
-            // 
-            // positionsBindingSource
-            // 
-            this.positionsBindingSource.DataMember = "Positions";
-            this.positionsBindingSource.DataSource = this._payroll_unapecDataSet;
             // 
             // label5
             // 
@@ -196,7 +189,7 @@
             // 
             // employeePayroll
             // 
-            this.employeePayroll.DataSource = this.payrollsBindingSource;
+            this.employeePayroll.DataSource = this.payrollsBindingSource1;
             this.employeePayroll.DisplayMember = "Name";
             this.employeePayroll.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.employeePayroll.FormattingEnabled = true;
@@ -206,70 +199,6 @@
             this.employeePayroll.TabIndex = 12;
             this.employeePayroll.ValueMember = "Id";
             // 
-            // payrollsBindingSource
-            // 
-            this.payrollsBindingSource.DataMember = "Payrolls";
-            this.payrollsBindingSource.DataSource = this._payroll_unapecDataSet2;
-            // 
-            // _payroll_unapecDataSet2
-            // 
-            this._payroll_unapecDataSet2.DataSetName = "_payroll_unapecDataSet2";
-            this._payroll_unapecDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 179);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(541, 150);
-            this.dataGridView1.TabIndex = 13;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 20;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Cédula";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Nombre";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Departamento";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Puesto";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Salario Mensual";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Nómina";
-            this.Column7.Name = "Column7";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(15, 131);
@@ -278,7 +207,7 @@
             this.button1.TabIndex = 14;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // button2
             // 
@@ -288,27 +217,169 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // all
+            // 
+            this.all.DataSetName = "all";
+            this.all.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataMember = "Employees";
+            this.employeesBindingSource.DataSource = this.all;
+            // 
+            // employeesTableAdapter
+            // 
+            this.employeesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.DepartmentsTableAdapter = this.departmentsTableAdapter;
+            this.tableAdapterManager.EmployeesTableAdapter = this.employeesTableAdapter;
+            this.tableAdapterManager.PayrollsTableAdapter = this.payrollsTableAdapter;
+            this.tableAdapterManager.PositionsTableAdapter = this.positionsTableAdapter;
+            this.tableAdapterManager.RolesTableAdapter = null;
+            this.tableAdapterManager.TransactionsTableAdapter = null;
+            this.tableAdapterManager.TransactionTypesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Nomina.allTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UserRoleTableAdapter = null;
+            this.tableAdapterManager.UsersTableAdapter = null;
             // 
             // departmentsTableAdapter
             // 
             this.departmentsTableAdapter.ClearBeforeFill = true;
             // 
+            // payrollsTableAdapter
+            // 
+            this.payrollsTableAdapter.ClearBeforeFill = true;
+            // 
             // positionsTableAdapter
             // 
             this.positionsTableAdapter.ClearBeforeFill = true;
             // 
-            // payrollsTableAdapter
+            // employeesDataGridView
             // 
-            this.payrollsTableAdapter.ClearBeforeFill = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.employeesDataGridView.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DataGrid_CellParsing);
+            this.employeesDataGridView.AllowUserToAddRows = false;
+            this.employeesDataGridView.AllowUserToDeleteRows = false;
+            this.employeesDataGridView.AutoGenerateColumns = false;
+            this.employeesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.employeesDataGridView.DataSource = this.employeesBindingSource;
+            this.employeesDataGridView.Location = new System.Drawing.Point(13, 216);
+            this.employeesDataGridView.Name = "employeesDataGridView";
+            this.employeesDataGridView.Size = new System.Drawing.Size(582, 220);
+            this.employeesDataGridView.TabIndex = 16;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 30;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Cedula";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Cédula";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Salary";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Salario";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Position_Id";
+            this.dataGridViewTextBoxColumn5.DataSource = this.positionsBindingSource;
+            this.dataGridViewTextBoxColumn5.DisplayMember = "Name";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Puesto";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn5.ValueMember = "Id";
+            // 
+            // positionsBindingSource
+            // 
+            this.positionsBindingSource.DataMember = "Positions";
+            this.positionsBindingSource.DataSource = this.all;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Department_Id";
+            this.dataGridViewTextBoxColumn6.DataSource = this.departmentsBindingSource;
+            this.dataGridViewTextBoxColumn6.DisplayMember = "Name";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Departamento";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn6.ValueMember = "Id";
+            // 
+            // departmentsBindingSource
+            // 
+            this.departmentsBindingSource.DataMember = "Departments";
+            this.departmentsBindingSource.DataSource = this.all;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Payroll_Id";
+            this.dataGridViewTextBoxColumn7.DataSource = this.payrollsBindingSource;
+            this.dataGridViewTextBoxColumn7.DisplayMember = "Name";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Nómina";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn7.ValueMember = "Id";
+            // 
+            // payrollsBindingSource
+            // 
+            this.payrollsBindingSource.DataMember = "Payrolls";
+            this.payrollsBindingSource.DataSource = this.all;
+            // 
+            // departmentsBindingSource1
+            // 
+            this.departmentsBindingSource1.DataMember = "Departments";
+            this.departmentsBindingSource1.DataSource = this.all;
+            // 
+            // positionsBindingSource1
+            // 
+            this.positionsBindingSource1.DataMember = "Positions";
+            this.positionsBindingSource1.DataSource = this.all;
+            // 
+            // payrollsBindingSource1
+            // 
+            this.payrollsBindingSource1.DataMember = "Payrolls";
+            this.payrollsBindingSource1.DataSource = this.all;
             // 
             // EmployeeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 394);
+            this.ClientSize = new System.Drawing.Size(613, 456);
+            this.Controls.Add(this.employeesDataGridView);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.employeePayroll);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.employeeSalary);
@@ -326,12 +397,15 @@
             this.Text = "Mantenimiento de Empleados";
             this.Load += new System.EventHandler(this.EmployeeeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.all)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.payrollsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._payroll_unapecDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.payrollsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,23 +426,28 @@
         private System.Windows.Forms.TextBox employeeSalary;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox employeePayroll;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private _payroll_unapecDataSet _payroll_unapecDataSet;
-        private System.Windows.Forms.BindingSource departmentsBindingSource;
-        private _payroll_unapecDataSetTableAdapters.DepartmentsTableAdapter departmentsTableAdapter;
+        private all all;
+        private System.Windows.Forms.BindingSource employeesBindingSource;
+        private allTableAdapters.EmployeesTableAdapter employeesTableAdapter;
+        private allTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DataGridView employeesDataGridView;
+        private allTableAdapters.PositionsTableAdapter positionsTableAdapter;
         private System.Windows.Forms.BindingSource positionsBindingSource;
-        private _payroll_unapecDataSetTableAdapters.PositionsTableAdapter positionsTableAdapter;
-        private _payroll_unapecDataSet2 _payroll_unapecDataSet2;
+        private allTableAdapters.DepartmentsTableAdapter departmentsTableAdapter;
+        private System.Windows.Forms.BindingSource departmentsBindingSource;
+        private allTableAdapters.PayrollsTableAdapter payrollsTableAdapter;
         private System.Windows.Forms.BindingSource payrollsBindingSource;
-        private _payroll_unapecDataSet2TableAdapters.PayrollsTableAdapter payrollsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.BindingSource departmentsBindingSource1;
+        private System.Windows.Forms.BindingSource positionsBindingSource1;
+        private System.Windows.Forms.BindingSource payrollsBindingSource1;
     }
 }

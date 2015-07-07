@@ -73,6 +73,11 @@
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AFPCalculator.cs" />
+    <Compile Include="all.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>all.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DeductionTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +277,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PayrollModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="all.xsc">
+      <DependentUpon>all.xsd</DependentUpon>
+    </None>
+    <None Include="all.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>all.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="all.xss">
+      <DependentUpon>all.xsd</DependentUpon>
+    </None>
     <None Include="PayrollModel.edmx.diagram">
       <DependentUpon>PayrollModel.edmx</DependentUpon>
     </None>

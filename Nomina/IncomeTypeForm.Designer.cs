@@ -157,6 +157,7 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
+            
             this.dataGridViewTextBoxColumn3.DataPropertyName = "SalaryDependent";
             this.dataGridViewTextBoxColumn3.HeaderText = "Depende de Salario";
             this.dataGridViewTextBoxColumn3.Items.AddRange(new object[] {
