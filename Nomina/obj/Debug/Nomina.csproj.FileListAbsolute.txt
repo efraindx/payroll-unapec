@@ -18,3 +18,4 @@ C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.exe
 C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.pdb
 C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.csprojResolveAssemblyReference.cache
 C:\Users\etoribio\Source\Repos\payroll-unapec\Nomina\obj\Debug\Nomina.EmployeeeForm.resources
+C:\Users\R. Jimenez\documents\visual studio 2015\Projects\UNAPEC\Nomina\bin\Debug\Nomina.exe.config
