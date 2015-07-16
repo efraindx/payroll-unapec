@@ -41,8 +41,8 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -73,6 +73,10 @@
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AFPCalculator.cs" />
+    <Compile Include="all.cs">
+      <DependentUpon>all.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="all.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,6 +105,12 @@
     </Compile>
     <Compile Include="EmployeeeForm.Designer.cs">
       <DependentUpon>EmployeeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -144,6 +154,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PayrollModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PayrollReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PayrollReportForm.Designer.cs">
+      <DependentUpon>PayrollReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Position.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
@@ -198,6 +214,7 @@
     </Compile>
     <Compile Include="_payroll_unapecDataSet.cs">
       <DependentUpon>_payroll_unapecDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="_payroll_unapecDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -229,6 +246,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_payroll_unapecDataSet5.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_payroll_unapecDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_payroll_unapecDataSet6.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccessesForm.resx">
       <DependentUpon>AccessesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +266,9 @@
     <EmbeddedResource Include="EmployeeeForm.resx">
       <DependentUpon>EmployeeeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +281,10 @@
     <EmbeddedResource Include="PayrollForm.resx">
       <DependentUpon>PayrollForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PayrollReport.rdlc" />
+    <EmbeddedResource Include="PayrollReportForm.resx">
+      <DependentUpon>PayrollReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PositionForm.resx">
       <DependentUpon>PositionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +293,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="RolesForm.resx">
       <DependentUpon>RolesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -366,6 +396,17 @@
     </None>
     <None Include="_payroll_unapecDataSet5.xss">
       <DependentUpon>_payroll_unapecDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="_payroll_unapecDataSet6.xsc">
+      <DependentUpon>_payroll_unapecDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="_payroll_unapecDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_payroll_unapecDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_payroll_unapecDataSet6.xss">
+      <DependentUpon>_payroll_unapecDataSet6.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

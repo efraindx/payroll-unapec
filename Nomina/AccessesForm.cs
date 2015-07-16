@@ -38,7 +38,7 @@ namespace Nomina
         {
             using (var dbContext = new PayrollDbContext())
             {
-                LoginForm.user.Roles.Clear();
+                //LoginForm.user.Roles.Clear();
                 dbContext.Database.ExecuteSqlCommand( "DELETE FROM UserRole WHERE UserRole_Role_id=" + userId);
                 foreach (int i in availableAccesses.SelectedIndices)
                 {

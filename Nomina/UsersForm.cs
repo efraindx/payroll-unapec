@@ -42,7 +42,16 @@ namespace Nomina
             {
                 int userId = int.Parse(usersDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
                 form.userId = userId;
-                form.selectRoles(dbContext.Users.Find(userId).Roles.ToList());
+                var selectedUser = dbContext.Users.Find(userId);
+
+                if (selectedUser != null)
+                {
+                    form.selectRoles(dbContext.Users.Find(userId).Roles.ToList());
+                }
+                else
+                {
+                    form.selectRoles(dbContext.Roles.ToList());
+                }
             }
         }
     }
