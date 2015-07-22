@@ -8015,7 +8015,7 @@ SELECT UserRole_Role_Id, Roles_Id FROM UserRole WHERE (Roles_Id = @Roles_Id) AND
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[9];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"select em.Name as Empleado, trt.Name as Nombre_Transaction, tr.Amount as Monto,
@@ -8044,10 +8044,10 @@ tr.[Group] as Fecha
 from Employees em
 join Transactions tr on tr.Employee_Id = em.Id
 join TransactionTypes trt on tr.TransactionType_Id = trt.Id
-where isIncome  = @isIncome and Employee_Id = @empID";
+where tr.Employee_Id = @empId and em.Payroll_Id = @payrollId";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isIncome", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "isIncome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@empID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@empId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payrollId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Payroll_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"select em.Name as Empleado, trt.Name as Nombre_Transaction, tr.Amount as Monto,
@@ -8056,9 +8056,11 @@ tr.[Group] as Fecha
 from Employees em
 join Transactions tr on tr.Employee_Id = em.Id
 join TransactionTypes trt on tr.TransactionType_Id = trt.Id
-where Employee_Id = @empID";
+where tr.Employee_Id = @empId and trt.isIncome = @isIncome and  em.Payroll_Id = @payrollId";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@empID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@empId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isIncome", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "isIncome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payrollId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Payroll_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"select em.Name as Empleado, trt.Name as Nombre_Transaction, tr.Amount as Monto,
@@ -8067,11 +8069,10 @@ tr.[Group] as Fecha
 from Employees em
 join Transactions tr on tr.Employee_Id = em.Id
 join TransactionTypes trt on tr.TransactionType_Id = trt.Id
-where Employee_id = @empID and isIncome = @isIncome and Payroll_id = @payrollID";
+where isIncome  = @isIncome and Employee_Id = @empID";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@empID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isIncome", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "isIncome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payrollID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Payroll_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@empID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = @"select em.Name as Empleado, trt.Name as Nombre_Transaction, tr.Amount as Monto,
@@ -8080,9 +8081,45 @@ tr.[Group] as Fecha
 from Employees em
 join Transactions tr on tr.Employee_Id = em.Id
 join TransactionTypes trt on tr.TransactionType_Id = trt.Id
-where Payroll_Id = @payrollID";
+where Employee_Id = @empID";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payrollID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Payroll_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@empID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = @"select em.Name as Empleado, trt.Name as Nombre_Transaction, tr.Amount as Monto,
+case when trt.isIncome = 1 then 'INGRESO' else 'DEDUCCION' end as Tipo_Transaction,
+tr.[Group] as Fecha
+from Employees em
+join Transactions tr on tr.Employee_Id = em.Id
+join TransactionTypes trt on tr.TransactionType_Id = trt.Id
+where Employee_id = @empID and isIncome = @isIncome and Payroll_id = @payrollID";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@empID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isIncome", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "isIncome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payrollID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Payroll_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = @"select em.Name as Empleado, trt.Name as Nombre_Transaction, tr.Amount as Monto,
+case when trt.isIncome = 1 then 'INGRESO' else 'DEDUCCION' end as Tipo_Transaction,
+tr.[Group] as Fecha
+from Employees em
+join Transactions tr on tr.Employee_Id = em.Id
+join TransactionTypes trt on tr.TransactionType_Id = trt.Id
+where Payroll_Id = @payrollID";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payrollID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Payroll_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = @"select em.Name as Empleado, trt.Name as Nombre_Transaction, tr.Amount as Monto,
+case when trt.isIncome = 1 then 'INGRESO' else 'DEDUCCION' end as Tipo_Transaction,
+tr.[Group] as Fecha
+from Employees em
+join Transactions tr on tr.Employee_Id = em.Id
+join TransactionTypes trt on tr.TransactionType_Id = trt.Id
+where  trt.isIncome = @isIncome and em.Payroll_Id = @payrollId ";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isIncome", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "isIncome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payrollId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Payroll_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8139,8 +8176,66 @@ where Payroll_Id = @payrollID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByEmpIdAndTransactionTypeWithAllPayrolls(all.DataTableReportDataTable dataTable, bool isIncome, int empID) {
+        public virtual int FillByEmpIDAndPayrollIDWithAllTransactionTypes(all.DataTableReportDataTable dataTable, int empId, int payrollId) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(empId));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(payrollId));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual all.DataTableReportDataTable GetDataByEmpIDAndPayrollIDWithAllTransactionTypes(int empId, int payrollId) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(empId));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(payrollId));
+            all.DataTableReportDataTable dataTable = new all.DataTableReportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByEmpIdAndTransactionTypeAndPayrollId(all.DataTableReportDataTable dataTable, int empId, bool isIncome, int payrollId) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(empId));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(isIncome));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(payrollId));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual all.DataTableReportDataTable GetDataByEmpIdAndTransactionTypeAndPayrollId(int empId, bool isIncome, int payrollId) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(empId));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(isIncome));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(payrollId));
+            all.DataTableReportDataTable dataTable = new all.DataTableReportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByEmpIdAndTransactionTypeWithAllPayrolls(all.DataTableReportDataTable dataTable, bool isIncome, int empID) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(isIncome));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(empID));
             if ((this.ClearBeforeFill == true)) {
@@ -8155,7 +8250,7 @@ where Payroll_Id = @payrollID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual all.DataTableReportDataTable GetDataByEmpIdAndIsIncomeWithAllPayrolls(bool isIncome, int empID) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(isIncome));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(empID));
             all.DataTableReportDataTable dataTable = new all.DataTableReportDataTable();
@@ -8168,7 +8263,7 @@ where Payroll_Id = @payrollID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByEmpIDWithAllTransactionTypesAndPayrolls(all.DataTableReportDataTable dataTable, int empID) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(empID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8182,7 +8277,7 @@ where Payroll_Id = @payrollID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual all.DataTableReportDataTable GetDataByEmpIDWithAllTransactionTypes(int empID) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(empID));
             all.DataTableReportDataTable dataTable = new all.DataTableReportDataTable();
             this.Adapter.Fill(dataTable);
@@ -8194,7 +8289,7 @@ where Payroll_Id = @payrollID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByEmployeeIDAndTransactionTypeAndPayrollID(all.DataTableReportDataTable dataTable, int empID, bool isIncome, int payrollID) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(empID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(isIncome));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(payrollID));
@@ -8210,7 +8305,7 @@ where Payroll_Id = @payrollID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual all.DataTableReportDataTable GetDataByByEmployeeIDAndTransactionTypeAndPayrollID(int empID, bool isIncome, int payrollID) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(empID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(isIncome));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(payrollID));
@@ -8224,7 +8319,7 @@ where Payroll_Id = @payrollID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByPayrollIDWithAllEmployeeAndTransactionTypes(all.DataTableReportDataTable dataTable, int payrollID) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(payrollID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8238,8 +8333,36 @@ where Payroll_Id = @payrollID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual all.DataTableReportDataTable GetDataByPayrollIDWithAllEmployeeAndTransactionTypes(int payrollID) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(payrollID));
+            all.DataTableReportDataTable dataTable = new all.DataTableReportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTransactionTypeAndPayrollIdWithAllEmployees(all.DataTableReportDataTable dataTable, bool isIncome, int payrollId) {
+            this.Adapter.SelectCommand = this.CommandCollection[8];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(isIncome));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(payrollId));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual all.DataTableReportDataTable GetDataByTransactionTypeAndPayrollIdWithAllEmployees(bool isIncome, int payrollId) {
+            this.Adapter.SelectCommand = this.CommandCollection[8];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(isIncome));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(payrollId));
             all.DataTableReportDataTable dataTable = new all.DataTableReportDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

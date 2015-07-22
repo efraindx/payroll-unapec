@@ -281,7 +281,6 @@
     <EmbeddedResource Include="PayrollForm.resx">
       <DependentUpon>PayrollForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PayrollReport.rdlc" />
     <EmbeddedResource Include="PayrollReportForm.resx">
       <DependentUpon>PayrollReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,7 +292,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="PayrollReport.rdlc" />
     <EmbeddedResource Include="RolesForm.resx">
       <DependentUpon>RolesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,7 +311,6 @@
     </None>
     <None Include="all.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>all.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="all.xss">
