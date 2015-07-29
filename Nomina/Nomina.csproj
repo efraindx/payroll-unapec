@@ -74,114 +74,113 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccessesForm.cs">
+    <Compile Include="Views\AccessesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccessesForm.Designer.cs">
+    <Compile Include="Views\AccessesForm.Designer.cs">
       <DependentUpon>AccessesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminForm.cs">
+    <Compile Include="Views\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForm.Designer.cs">
+    <Compile Include="Views\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AFPCalculator.cs" />
+    <Compile Include="Services\Calculators\AFPCalculator.cs" />
     <Compile Include="all.cs">
       <DependentUpon>all.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="all.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>all.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DeductionTypeForm.cs">
+    <Compile Include="Views\DeductionTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeductionTypeForm.Designer.cs">
+    <Compile Include="Views\DeductionTypeForm.Designer.cs">
       <DependentUpon>DeductionTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Department.cs">
+    <Compile Include="Persistence\Department.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DepartmentForm.cs">
+    <Compile Include="Views\DepartmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepartmentForm.Designer.cs">
+    <Compile Include="Views\DepartmentForm.Designer.cs">
       <DependentUpon>DepartmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs">
+    <Compile Include="Persistence\Employee.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeeForm.cs">
+    <Compile Include="Views\EmployeeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeeeForm.Designer.cs">
+    <Compile Include="Views\EmployeeeForm.Designer.cs">
       <DependentUpon>EmployeeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Views\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
+    <Compile Include="Views\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
+    <Compile Include="Views\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="IncomeTypeForm.cs">
+    <Compile Include="Views\IncomeTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IncomeTypeForm.Designer.cs">
+    <Compile Include="Views\IncomeTypeForm.Designer.cs">
       <DependentUpon>IncomeTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ISRCalculator.cs" />
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Services\Calculators\ISRCalculator.cs" />
+    <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Views\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Payroll.cs">
+    <Compile Include="Persistence\Payroll.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PayrollForm.cs">
+    <Compile Include="Views\PayrollForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PayrollForm.Designer.cs">
+    <Compile Include="Views\PayrollForm.Designer.cs">
       <DependentUpon>PayrollForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PayrollModel.Context.cs">
+    <Compile Include="Persistence\PayrollModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PayrollModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="PayrollModel.cs">
+    <Compile Include="Persistence\PayrollModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PayrollModel.Designer.cs">
+    <Compile Include="Persistence\PayrollModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PayrollModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="PayrollReportForm.cs">
+    <Compile Include="Views\PayrollReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PayrollReportForm.Designer.cs">
+    <Compile Include="Views\PayrollReportForm.Designer.cs">
       <DependentUpon>PayrollReportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Position.cs">
+    <Compile Include="Persistence\Position.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PositionForm.cs">
+    <Compile Include="Views\PositionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PositionForm.Designer.cs">
+    <Compile Include="Views\PositionForm.Designer.cs">
       <DependentUpon>PositionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -191,44 +190,43 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Role.cs">
+    <Compile Include="Persistence\Role.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RolesForm.cs">
+    <Compile Include="Views\RolesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RolesForm.Designer.cs">
+    <Compile Include="Views\RolesForm.Designer.cs">
       <DependentUpon>RolesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SFSCalculator.cs" />
-    <Compile Include="StandardForm.cs">
+    <Compile Include="Services\Calculators\SFSCalculator.cs" />
+    <Compile Include="Views\StandardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaction.cs">
+    <Compile Include="Persistence\Transaction.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TransactionCalculator.cs" />
-    <Compile Include="TransactionForm.cs">
+    <Compile Include="Services\Calculators\TransactionCalculator.cs" />
+    <Compile Include="Views\TransactionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransactionForm.Designer.cs">
+    <Compile Include="Views\TransactionForm.Designer.cs">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransactionType.cs">
+    <Compile Include="Persistence\TransactionType.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
+    <Compile Include="Persistence\User.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UsersForm.cs">
+    <Compile Include="Views\UsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsersForm.Designer.cs">
+    <Compile Include="Views\UsersForm.Designer.cs">
       <DependentUpon>UsersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="_payroll_unapecDataSet.cs">
       <DependentUpon>_payroll_unapecDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="_payroll_unapecDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -265,58 +263,59 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_payroll_unapecDataSet6.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AccessesForm.resx">
+    <EmbeddedResource Include="Views\AccessesForm.resx">
       <DependentUpon>AccessesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminForm.resx">
+    <EmbeddedResource Include="Views\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeductionTypeForm.resx">
+    <EmbeddedResource Include="Views\DeductionTypeForm.resx">
       <DependentUpon>DeductionTypeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepartmentForm.resx">
+    <EmbeddedResource Include="Views\DepartmentForm.resx">
       <DependentUpon>DepartmentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeeForm.resx">
+    <EmbeddedResource Include="Views\EmployeeeForm.resx">
       <DependentUpon>EmployeeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
+    <EmbeddedResource Include="Views\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IncomeTypeForm.resx">
+    <EmbeddedResource Include="Views\IncomeTypeForm.resx">
       <DependentUpon>IncomeTypeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PayrollForm.resx">
+    <EmbeddedResource Include="Views\PayrollForm.resx">
       <DependentUpon>PayrollForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PayrollReportForm.resx">
+    <EmbeddedResource Include="Views\PayrollReportForm.resx">
       <DependentUpon>PayrollReportForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PositionForm.resx">
+    <EmbeddedResource Include="Views\PositionForm.resx">
       <DependentUpon>PositionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="PayrollReport.rdlc" />
-    <EmbeddedResource Include="RolesForm.resx">
+    <EmbeddedResource Include="Reports\PayrollReport.rdlc" />
+    <EmbeddedResource Include="Views\RolesForm.resx">
       <DependentUpon>RolesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransactionForm.resx">
+    <EmbeddedResource Include="Views\TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsersForm.resx">
+    <EmbeddedResource Include="Views\UsersForm.resx">
       <DependentUpon>UsersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="PayrollModel.edmx">
+    <EntityDeploy Include="Persistence\PayrollModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PayrollModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
@@ -330,7 +329,7 @@
     <None Include="all.xss">
       <DependentUpon>all.xsd</DependentUpon>
     </None>
-    <None Include="PayrollModel.edmx.diagram">
+    <None Include="Persistence\PayrollModel.edmx.diagram">
       <DependentUpon>PayrollModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -425,13 +424,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PayrollModel.Context.tt">
+    <Content Include="Persistence\PayrollModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PayrollModel.Context.cs</LastGenOutput>
       <DependentUpon>PayrollModel.edmx</DependentUpon>
     </Content>
-    <Content Include="PayrollModel.edmx.sql" />
-    <Content Include="PayrollModel.tt">
+    <Content Include="Persistence\PayrollModel.edmx.sql" />
+    <Content Include="Persistence\PayrollModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PayrollModel.cs</LastGenOutput>
       <DependentUpon>PayrollModel.edmx</DependentUpon>
