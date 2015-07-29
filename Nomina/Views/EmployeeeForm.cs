@@ -88,23 +88,22 @@ namespace Nomina.Views
                             break;
 
                         case 3:
-                            employeeToUpdate.Department_Id = int.Parse(newValue);
-                            dbContext.SaveChanges();
-                            break;
-
-                        case 4:
-                            
-                            employeeToUpdate.Position_Id = int.Parse(newValue);
-                            dbContext.SaveChanges();
-                            break;
-
-                        case 5:
                             employeeToUpdate.Salary = double.Parse(newValue);
                             dbContext.SaveChanges();
                             break;
 
+                        case 4:
+                            employeeToUpdate.Position_Id = dbContext.Positions.Where(p => p.Name.Equals(newValue)).FirstOrDefault().Id;
+                            dbContext.SaveChanges();
+                            break;
+
+                        case 5:
+                            employeeToUpdate.Department_Id = dbContext.Departments.Where(p => p.Name.Equals(newValue)).FirstOrDefault().Id;
+                            dbContext.SaveChanges();
+                            break;
+
                         case 6:
-                            employeeToUpdate.Payroll_Id = int.Parse(newValue);
+                            employeeToUpdate.Payroll_Id = dbContext.Payrolls.Where(p => p.Name.Equals(newValue)).FirstOrDefault().Id;
                             dbContext.SaveChanges();
                             break;
                     }
