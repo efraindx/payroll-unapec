@@ -124,6 +124,10 @@ namespace Nomina
             if (amount > 0)
             {
                 int row = transactionsDataGridView.Rows.Add();
+                if(!transactionType.isIncome)
+                {
+                    amount = amount * -1;
+                }
                 transactionsDataGridView.Rows[row].Cells[0].Value = employee.Name;
                 transactionsDataGridView.Rows[row].Cells[0].Tag = employee.Id;
                 transactionsDataGridView.Rows[row].Cells[1].Value = transactionType.Name;

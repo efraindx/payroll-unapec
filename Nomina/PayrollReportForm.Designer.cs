@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayrollReportForm));
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.all = new Nomina.all();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -192,9 +192,10 @@
             this.Controls.Add(this.cmbTransactionType);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "PayrollReportForm";
-            this.Text = "PayrollReportForm";
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "PayrollReportForm";
+            this.Text = "Reporte de Nómina";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PayrollReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.all)).EndInit();
