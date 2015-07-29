@@ -184,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 361);
+            this.ClientSize = new System.Drawing.Size(770, 396);
             this.Controls.Add(this.cmbNomina);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbEmployee);
@@ -195,7 +195,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PayrollReportForm";
             this.Text = "Reporte de Nómina";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PayrollReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.all)).EndInit();

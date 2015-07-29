@@ -91,5 +91,10 @@ namespace Nomina.Views
         {
             Application.Exit();
         }
+
+        private void nóminasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new PayrollReportForm().Show();
+        }
     }
 }
